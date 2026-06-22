@@ -1,586 +1,780 @@
+To translate the website content into Amharic and Arabic using a seamless language toggle without altering the existing layouts, design elements, or responsiveness, we can integrate a simple JavaScript-driven translation framework.
+
+Below is the completely updated, fully functioning HTML file. A clean, premium language switcher dropdown has been added to the header (both desktop and mobile viewports) allowing users to switch between English, Amharic (አማርኛ), and Arabic (العربية) dynamically.
+
+HTML
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dallol Star Manpower Foreign Employment Agent</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for Premium Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            gold: '#D4AF37',
-                            navy: '#0A192F',
-                            blue: '#172A45',
-                            light: '#F4F6F9'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Lightweight CSS Hover Animations for Flags & Interactivity */
-        .flag-card {
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
-        }
-        .flag-card:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
-        }
-        .img-premium {
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-        /* Smooth transitions for mobile menu */
-        #mobile-menu {
-            transition: max-height 0.3s ease-out;
-            max-height: 0;
-            overflow: hidden;
-        }
-        #mobile-menu.open {
-            max-height: 500px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dallol Star Manpower Foreign Employment Agent</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+brand: {
+gold: '#D4AF37',
+navy: '#0A192F',
+blue: '#172A45',
+light: '#F4F6F9'
+}
+}
+}
+}
+}
+</script>
+<style>
+/* Lightweight CSS Hover Animations for Flags & Interactivity */
+.flag-card {
+transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+.flag-card:hover {
+transform: translateY(-5px) scale(1.02);
+box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+}
+.img-premium {
+border-radius: 12px;
+transition: all 0.3s ease;
+}
+/* Smooth transitions for mobile menu */
+#mobile-menu {
+transition: max-height 0.3s ease-out;
+max-height: 0;
+overflow: hidden;
+}
+#mobile-menu.open {
+max-height: 600px;
+}
+/* RTL Support for Arabic layout adjustments */
+[dir="rtl"] .text-left { text-align: right; }
+[dir="rtl"] .text-right { text-align: left; }
+[dir="rtl"] .list-inside { padding-right: 0; list-style-position: inside; }
+</style>
 </head>
 <body class="bg-brand-light text-slate-800 font-sans antialiased">
 
-    <!-- Sticky Header & Direct Communication Integrations -->
-    <header class="sticky top-0 z-50 bg-brand-navy text-white shadow-md border-b border-brand-gold/30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Brand Identity -->
-                <div class="flex-shrink-0">
-                    <h1 class="text-xl font-bold tracking-wide text-brand-gold">DALLOL-STAR MANPOWER</h1>
-                    <p class="text-xs text-slate-400 font-serif">ዳሎል ስታር ማንፓወር</p>
-                </div>
+<header class="sticky top-0 z-50 bg-brand-navy text-white shadow-md border-b border-brand-gold/30">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<div class="flex-shrink-0">
+<h1 class="text-xl font-bold tracking-wide text-brand-gold">DALLOL-STAR MANPOWER</h1>
+<p class="text-xs text-slate-400 font-serif">ዳሎል ስታር ማንፓወር</p>
+</div>
 
-                <!-- Desktop Navigation Links -->
-                <nav class="hidden md:flex space-x-6 text-sm font-medium">
-                    <a href="#about" class="hover:text-brand-gold transition">About Us</a>
-                    <a href="#workflow" class="hover:text-brand-gold transition">Our Process</a>
-                    <a href="#services" class="hover:text-brand-gold transition">Services</a>
-                    <a href="#salaries" class="hover:text-brand-gold transition">Salaries</a>
-                    <a href="#jobseekers" class="hover:text-brand-gold transition">Job Seekers</a>
-                    <a href="#contact" class="hover:text-brand-gold transition">Contact</a>
-                </nav>
+<nav class="hidden md:flex space-x-6 text-sm font-medium">
+<a href="#about" data-i18n="nav-about" class="hover:text-brand-gold transition">About Us</a>
+<a href="#workflow" data-i18n="nav-process" class="hover:text-brand-gold transition">Our Process</a>
+<a href="#services" data-i18n="nav-services" class="hover:text-brand-gold transition">Services</a>
+<a href="#salaries" data-i18n="nav-salaries" class="hover:text-brand-gold transition">Salaries</a>
+<a href="#jobseekers" data-i18n="nav-jobseekers" class="hover:text-brand-gold transition">Job Seekers</a>
+<a href="#contact" data-i18n="nav-contact" class="hover:text-brand-gold transition">Contact</a>
+</nav>
 
-                <!-- Action Button & WhatsApp Integration -->
-                <div class="hidden md:flex items-center space-x-4">
-                    <a href="https://wa.me/251911661718" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm flex items-center font-medium transition">
-                        <i class="fab fa-whatsapp mr-2 text-base"></i> B2B WhatsApp Chat
-                    </a>
-                </div>
+<div class="hidden md:flex items-center space-x-4">
+<div class="relative inline-block text-left">
+<select id="lang-select-desktop" class="bg-brand-blue border border-brand-gold/50 text-white text-xs rounded-lg block p-2 focus:outline-none cursor-pointer">
+<option value="en">English</option>
+<option value="am">አማርኛ (Amharic)</option>
+<option value="ar">العربية (Arabic)</option>
+</select>
+</div>
+<a href="https://wa.me/251911661718" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm flex items-center font-medium transition">
+<i class="fab fa-whatsapp mr-2 text-base"></i> 
+<span data-i18n="whatsapp-btn">B2B WhatsApp Chat</span>
+</a>
+</div>
 
-                <!-- Hamburger Button for Mobile -->
-                <div class="md:hidden flex items-center">
-                    <button id="menu-toggle" class="text-white focus:outline-none hover:text-brand-gold transition">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile Dropdown Menu -->
-        <div id="mobile-menu" class="md:hidden bg-brand-blue border-t border-slate-700 px-4 py-2 space-y-2">
-            <a href="#about" class="block text-white py-2 border-b border-slate-700/50">About Us</a>
-            <a href="#workflow" class="block text-white py-2 border-b border-slate-700/50">Our Process</a>
-            <a href="#services" class="block text-white py-2 border-b border-slate-700/50">Services</a>
-            <a href="#salaries" class="block text-white py-2 border-b border-slate-700/50">Salaries</a>
-            <a href="#jobseekers" class="block text-white py-2 border-b border-slate-700/50">Job Seekers</a>
-            <a href="#contact" class="block text-white py-2">Contact</a>
-            <a href="https://wa.me/251911661718" target="_blank" class="w-full bg-green-600 text-center text-white py-2.5 rounded-md block font-medium"><i class="fab fa-whatsapp mr-2"></i> WhatsApp Client Line</a>
-        </div>
-    </header>
+<div class="md:hidden flex items-center space-x-3">
+<select id="lang-select-mobile" class="bg-brand-blue border border-brand-gold/50 text-white text-xs rounded-lg p-1.5 focus:outline-none cursor-pointer">
+<option value="en">EN</option>
+<option value="am">AM</option>
+<option value="ar">AR</option>
+</select>
+<button id="menu-toggle" class="text-white focus:outline-none hover:text-brand-gold transition">
+<i class="fas fa-bars text-2xl"></i>
+</button>
+</div>
+</div>
+</div>
+<div id="mobile-menu" class="md:hidden bg-brand-blue border-t border-slate-700 px-4 py-2 space-y-2">
+<a href="#about" data-i18n="nav-about" class="block text-white py-2 border-b border-slate-700/50">About Us</a>
+<a href="#workflow" data-i18n="nav-process" class="block text-white py-2 border-b border-slate-700/50">Our Process</a>
+<a href="#services" data-i18n="nav-services" class="block text-white py-2 border-b border-slate-700/50">Services</a>
+<a href="#salaries" data-i18n="nav-salaries" class="block text-white py-2 border-b border-slate-700/50">Salaries</a>
+<a href="#jobseekers" data-i18n="nav-jobseekers" class="block text-white py-2 border-b border-slate-700/50">Job Seekers</a>
+<a href="#contact" data-i18n="nav-contact" class="block text-white py-2">Contact</a>
+<a href="https://wa.me/251911661718" target="_blank" class="w-full bg-green-600 text-center text-white py-2.5 rounded-md block font-medium"><i class="fab fa-whatsapp mr-2"></i> <span data-i18n="whatsapp-line">WhatsApp Client Line</span></a>
+</div>
+</header>
 
-    <!-- Hero Section: Trust, Credentials & Dual-Action Targets -->
-    <section class="bg-gradient-to-br from-brand-navy via-brand-blue to-black text-white py-16 md:py-24 px-4 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
-            <div>
-                <span class="bg-brand-gold/20 text-brand-gold border border-brand-gold/50 text-xs px-3 py-1.5 rounded-full font-bold uppercase tracking-widest">
-                    Licensed & Compliant Entity
-                </span>
-                <h2 class="text-4xl md:text-5xl font-extrabold mt-4 leading-tight">
-                    Premium Ethiopian Recruitment, Certified Excellence.
-                </h2>
-                <p class="mt-4 text-slate-300 text-base md:text-lg max-w-xl">
-                    Fully authorized under Ethiopia's Overseas Employment Proclamations No. 923/2016 & 1246/2021. Delivering reliable, trained, and highly dedicated human resource pipelines to the Gulf region.
-                </p>
-                
-                <!-- Dual-Action Buttons -->
-                <div class="mt-8 flex flex-col sm:flex-row gap-4">
-                    <a href="#corporate-form" class="bg-brand-gold hover:bg-yellow-600 text-brand-navy font-bold px-6 py-3.5 rounded-xl shadow-lg transition text-center">
-                        Request Manpower / Partner With Us
-                    </a>
-                    <a href="#jobseekers" class="bg-transparent border-2 border-white hover:bg-white hover:text-brand-navy font-bold px-6 py-3.5 rounded-xl transition text-center">
-                        Register to Work / ይመዝገቡ
-                    </a>
-                </div>
+<section class="bg-gradient-to-br from-brand-navy via-brand-blue to-black text-white py-16 md:py-24 px-4 relative overflow-hidden">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
+<div>
+<span data-i18n="hero-tag" class="bg-brand-gold/20 text-brand-gold border border-brand-gold/50 text-xs px-3 py-1.5 rounded-full font-bold uppercase tracking-widest">
+Licensed & Compliant Entity
+</span>
+<h2 data-i18n="hero-title" class="text-4xl md:text-5xl font-extrabold mt-4 leading-tight">
+Premium Ethiopian Recruitment, Certified Excellence.
+</h2>
+<p data-i18n="hero-desc" class="mt-4 text-slate-300 text-base md:text-lg max-w-xl">
+Fully authorized under Ethiopia's Overseas Employment Proclamations No. 923/2016 & 1246/2021. Delivering reliable, trained, and highly dedicated human resource pipelines to the Gulf region.
+</p>
 
-                <!-- Compliance Numbers Tag -->
-                <div class="mt-8 bg-brand-blue/60 border border-slate-700 p-4 rounded-xl max-w-md">
-                    <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Regulatory Credentials</p>
-                    <p class="text-sm font-mono text-brand-gold mt-1">Ministry of Labor Lic: No. 923/2008 & 1246/2013</p>
-                </div>
-            </div>
+<div class="mt-8 flex flex-col sm:flex-row gap-4">
+<a href="#corporate-form" data-i18n="hero-btn-corporate" class="bg-brand-gold hover:bg-yellow-600 text-brand-navy font-bold px-6 py-3.5 rounded-xl shadow-lg transition text-center">
+Request Manpower / Partner With Us
+</a>
+<a href="#jobseekers" data-i18n="hero-btn-seeker" class="bg-transparent border-2 border-white hover:bg-white hover:text-brand-navy font-bold px-6 py-3.5 rounded-xl transition text-center">
+Register to Work / ይመዝገቡ
+</a>
+</div>
 
-            <!-- Visual Lane Display & Interactive Elements -->
-            <div class="space-y-6">
-                <h3 class="text-center md:text-left text-sm font-bold uppercase tracking-wider text-slate-400">Primary Deployment Destinations</h3>
-                <div class="grid grid-cols-3 gap-4">
-                    <!-- Saudi Arabia -->
-                    <div class="flag-card bg-brand-blue p-4 rounded-2xl border border-slate-700 text-center">
-                        <img src="https://flagcdn.com/sa.svg" alt="Saudi Arabia Flag" class="w-16 h-10 mx-auto object-cover rounded shadow-md">
-                        <p class="text-xs font-bold mt-3 text-slate-200">Saudi Arabia</p>
-                        <span class="text-[10px] text-green-400 font-semibold block mt-1"><i class="fas fa-check-circle"></i> Musaned Ready</span>
-                    </div>
-                    <!-- Kuwait -->
-                    <div class="flag-card bg-brand-blue p-4 rounded-2xl border border-slate-700 text-center">
-                        <img src="https://flagcdn.com/kw.svg" alt="Kuwait Flag" class="w-16 h-10 mx-auto object-cover rounded shadow-md">
-                        <p class="text-xs font-bold mt-3 text-slate-200">Kuwait</p>
-                        <span class="text-[10px] text-blue-400 font-semibold block mt-1"><i class="fas fa-check-circle"></i> PAM Managed</span>
-                    </div>
-                    <!-- Jordan -->
-                    <div class="flag-card bg-brand-blue p-4 rounded-2xl border border-slate-700 text-center">
-                        <img src="https://flagcdn.com/jo.svg" alt="Jordan Flag" class="w-16 h-10 mx-auto object-cover rounded shadow-md">
-                        <p class="text-xs font-bold mt-3 text-slate-200">Jordan</p>
-                        <span class="text-[10px] text-amber-400 font-semibold block mt-1"><i class="fas fa-check-circle"></i> Vetted Lane</span>
-                    </div>
-                </div>
+<div class="mt-8 bg-brand-blue/60 border border-slate-700 p-4 rounded-xl max-w-md">
+<p data-i18n="cred-title" class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Regulatory Credentials</p>
+<p data-i18n="cred-details" class="text-sm font-mono text-brand-gold mt-1">Ministry of Labor Lic: No. 923/2008 & 1246/2013</p>
+</div>
+</div>
 
-                <!-- Quality Control Statement Slider/Carousel Frame -->
-                <div class="bg-brand-blue/40 border border-slate-800 p-6 rounded-2xl">
-                    <h4 class="text-brand-gold font-bold text-sm mb-2"><i class="fas fa-shield-alt mr-2"></i> Quality Assurance Standard</h4>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        Every single worker undergoes extensive background screening, comprehensive GAMCA health clearances, and full practical training before deployment.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="space-y-6">
+<h3 data-i18n="destinations-title" class="text-center md:text-left text-sm font-bold uppercase tracking-wider text-slate-400">Primary Deployment Destinations</h3>
+<div class="grid grid-cols-3 gap-4">
+<div class="flag-card bg-brand-blue p-4 rounded-2xl border border-slate-700 text-center">
+<img src="https://flagcdn.com/sa.svg" alt="Saudi Arabia Flag" class="w-16 h-10 mx-auto object-cover rounded shadow-md">
+<p data-i18n="country-sa" class="text-xs font-bold mt-3 text-slate-200">Saudi Arabia</p>
+<span data-i18n="status-sa" class="text-[10px] text-green-400 font-semibold block mt-1"><i class="fas fa-check-circle"></i> Musaned Ready</span>
+</div>
+<div class="flag-card bg-brand-blue p-4 rounded-2xl border border-slate-700 text-center">
+<img src="https://flagcdn.com/kw.svg" alt="Kuwait Flag" class="w-16 h-10 mx-auto object-cover rounded shadow-md">
+<p data-i18n="country-kw" class="text-xs font-bold mt-3 text-slate-200">Kuwait</p>
+<span data-i18n="status-kw" class="text-[10px] text-blue-400 font-semibold block mt-1"><i class="fas fa-check-circle"></i> PAM Managed</span>
+</div>
+<div class="flag-card bg-brand-blue p-4 rounded-2xl border border-slate-700 text-center">
+<img src="https://flagcdn.com/jo.svg" alt="Jordan Flag" class="w-16 h-10 mx-auto object-cover rounded shadow-md">
+<p data-i18n="country-jo" class="text-xs font-bold mt-3 text-slate-200">Jordan</p>
+<span data-i18n="status-jo" class="text-[10px] text-amber-400 font-semibold block mt-1"><i class="fas fa-check-circle"></i> Vetted Lane</span>
+</div>
+</div>
 
-    <!-- Section: Why Ethiopian Manpower Value Proposition -->
-    <section id="about" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-12">
-            <h2 class="text-3xl font-bold text-brand-navy">Why Partner With Us for Ethiopian Manpower?</h2>
-            <p class="text-slate-600 mt-2">Dallol Star bridges the gap between top talent from Ethiopia and employers across the Gulf, mitigating deployment friction.</p>
-        </div>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 img-premium">
-                <div class="text-brand-gold text-3xl mb-4"><i class="fas fa-user-check"></i></div>
-                <h3 class="text-lg font-bold text-brand-navy mb-2">Adaptability &amp; Work Ethic</h3>
-                <p class="text-sm text-slate-600 leading-relaxed">Our candidates show incredible cultural resilience, fast home adaptation, and deep dedication to their work scopes.</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 img-premium">
-                <div class="text-brand-gold text-3xl mb-4"><i class="fas fa-hand-holding-usd"></i></div>
-                <h3 class="text-lg font-bold text-brand-navy mb-2">Cost-Effectiveness</h3>
-                <p class="text-sm text-slate-600 leading-relaxed">Positioning dynamic, budget-friendly domestic and labor solutions for families and companies without a single drop in workforce quality.</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 img-premium">
-                <div class="text-brand-gold text-3xl mb-4"><i class="fas fa-language"></i></div>
-                <h3 class="text-lg font-bold text-brand-navy mb-2">Language &amp; Culture Prep</h3>
-                <p class="text-sm text-slate-600 leading-relaxed">All candidates receive functional basic Arabic and English language courses alongside Middle Eastern household structure orientation.</p>
-            </div>
-        </div>
-    </section>
+<div class="bg-brand-blue/40 border border-slate-800 p-6 rounded-2xl">
+<h4 data-i18n="qa-title" class="text-brand-gold font-bold text-sm mb-2"><i class="fas fa-shield-alt mr-2"></i> Quality Assurance Standard</h4>
+<p data-i18n="qa-desc" class="text-xs text-slate-300 leading-relaxed">
+Every single worker undergoes extensive background screening, comprehensive GAMCA health clearances, and full practical training before deployment.
+</p>
+</div>
+</div>
+</div>
+</section>
 
-    <hr class="border-slate-200 max-w-7xl mx-auto">
+<section id="about" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-12">
+<h2 data-i18n="about-title" class="text-3xl font-bold text-brand-navy">Why Partner With Us for Ethiopian Manpower?</h2>
+<p data-i18n="about-subtitle" class="text-slate-600 mt-2">Dallol Star bridges the gap between top talent from Ethiopia and employers across the Gulf, mitigating deployment friction.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 img-premium">
+<div class="text-brand-gold text-3xl mb-4"><i class="fas fa-user-check"></i></div>
+<h3 data-i18n="prop1-title" class="text-lg font-bold text-brand-navy mb-2">Adaptability & Work Ethic</h3>
+<p data-i18n="prop1-desc" class="text-sm text-slate-600 leading-relaxed">Our candidates show incredible cultural resilience, fast home adaptation, and deep dedication to their work scopes.</p>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 img-premium">
+<div class="text-brand-gold text-3xl mb-4"><i class="fas fa-hand-holding-usd"></i></div>
+<h3 data-i18n="prop2-title" class="text-lg font-bold text-brand-navy mb-2">Cost-Effectiveness</h3>
+<p data-i18n="prop2-desc" class="text-sm text-slate-600 leading-relaxed">Positioning dynamic, budget-friendly domestic and labor solutions for families and companies without a single drop in workforce quality.</p>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 img-premium">
+<div class="text-brand-gold text-3xl mb-4"><i class="fas fa-language"></i></div>
+<h3 data-i18n="prop3-title" class="text-lg font-bold text-brand-navy mb-2">Language & Culture Prep</h3>
+<p data-i18n="prop3-desc" class="text-sm text-slate-600 leading-relaxed">All candidates receive functional basic Arabic and English language courses alongside Middle Eastern household structure orientation.</p>
+</div>
+</div>
+</section>
 
-    <!-- Section: End-to-End Pipeline Workflow -->
-    <section id="workflow" class="py-16 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <h2 class="text-3xl font-bold text-brand-navy">The Recruitment &amp; Deployment Pipeline</h2>
-                <p class="text-slate-600 mt-2">How we safely move demands into fully compliant deployments seamlessly.</p>
-            </div>
+<hr class="border-slate-200 max-w-7xl mx-auto">
 
-            <!-- Workflow Loop Grid -->
-            <div class="grid md:grid-cols-5 gap-6 text-center">
-                <div class="bg-brand-light p-5 rounded-xl border border-slate-200">
-                    <span class="bg-brand-navy text-white text-xs font-bold w-7 h-7 rounded-full flex items-center justify-center mx-auto mb-3">1</span>
-                    <h4 class="font-bold text-sm text-brand-navy mb-1">Sourcing &amp; Screening</h4>
-                    <p class="text-xs text-slate-600">Background and criminal record verification across Ethiopia.</p>
-                </div>
-                <div class="bg-brand-light p-5 rounded-xl border border-slate-200">
-                    <span class="bg-brand-navy text-white text-xs font-bold w-7 h-7 rounded-full flex items-center justify-center mx-auto mb-3">2</span>
-                    <h4 class="font-bold text-sm text-brand-navy mb-1">Medical Clearance</h4>
-                    <p class="text-xs text-slate-600">Strict health check matching GCC standards for infectious diseases.</p>
-                </div>
-                <div class="bg-brand-light p-5 rounded-xl border border-slate-200">
-                    <span class="bg-brand-navy text-white text-xs font-bold w-7 h-7 rounded-full flex items-center justify-center mx-auto mb-3">3</span>
-                    <h4 class="font-bold text-sm text-brand-navy mb-1">Pre-Departure Training</h4>
-                    <p class="text-xs text-slate-600">Arabic language basics, appliance usage, and cultural expectations.</p>
-                </div>
-                <div class="bg-brand-light p-5 rounded-xl border border-slate-200">
-                    <span class="bg-brand-navy text-white text-xs font-bold w-7 h-7 rounded-full flex items-center justify-center mx-auto mb-3">4</span>
-                    <h4 class="font-bold text-sm text-brand-navy mb-1">Visa &amp; Attestation</h4>
-                    <p class="text-xs text-slate-600">Biometrics processing and official embassy contract stamping.</p>
-                </div>
-                <div class="bg-brand-light p-5 rounded-xl border border-slate-200">
-                    <span class="bg-brand-navy text-white text-xs font-bold w-7 h-7 rounded-full flex items-center justify-center mx-auto mb-3">5</span>
-                    <h4 class="font-bold text-sm text-brand-navy mb-1">Deployment Support</h4>
-                    <p class="text-xs text-slate-600">Flight management and open tracking lines for the 2-year tenure.</p>
-                </div>
-            </div>
+<section id="workflow" class="py-16 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-12">
+<h2 data-i18n="flow-title" class="text-3xl font-bold text-brand-navy">The Recruitment & Deployment Pipeline</h2>
+<p data-i18n="flow-subtitle" class="text-slate-600 mt-2">How we safely move demands into fully compliant deployments seamlessly.</p>
+</div>
 
-            <!-- Transparency Timeline Box -->
-            <div class="mt-12 bg-brand-navy text-white p-6 md:p-8 rounded-2xl shadow-xl">
-                <div class="flex items-center space-x-3 mb-6">
-                    <i class="fas fa-history text-brand-gold text-xl"></i>
-                    <h3 class="text-xl font-bold">Standard Standardized Process Timeline</h3>
-                </div>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="border-l-2 border-brand-gold pl-4">
-                        <p class="text-xs text-brand-gold font-bold uppercase tracking-wider">Day 1 - 2</p>
-                        <h5 class="font-bold text-sm mt-1">Demand Verification</h5>
-                        <p class="text-xs text-slate-400 mt-1">Review criteria through automated official channels like Musaned.</p>
-                    </div>
-                    <div class="border-l-2 border-brand-gold pl-4">
-                        <p class="text-xs text-brand-gold font-bold uppercase tracking-wider">Day 3 - 7</p>
-                        <h5 class="font-bold text-sm mt-1">Screening &amp; Match</h5>
-                        <p class="text-xs text-slate-400 mt-1">Filtering active candidates by age, training background, and profile maps.</p>
-                    </div>
-                    <div class="border-l-2 border-brand-gold pl-4">
-                        <p class="text-xs text-brand-gold font-bold uppercase tracking-wider">Day 8 - 20</p>
-                        <h5 class="font-bold text-sm mt-1">Medical Processing</h5>
-                        <p class="text-xs text-slate-400 mt-1">GAMCA diagnostic clearances, local police vetting, passport validation.</p>
-                    </div>
-                    <div class="border-l-2 border-brand-gold pl-4">
-                        <p class="text-xs text-brand-gold font-bold uppercase tracking-wider">Day 25 - 35</p>
-                        <h5 class="font-bold text-sm mt-1">Visa Stamp &amp; Flight</h5>
-                        <p class="text-xs text-slate-400 mt-1">Final embassy clearance loops, travel booking logistics, orientation wrap.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="grid md:grid-cols-5 gap-6 text-center">
+<div class="bg-brand-light p-5 rounded-xl border border-slate-200">
+<span class="bg-brand-navy text-white text-xs font-bold w-7 h-7 rounded-full flex items-center justify-center mx-auto mb-3">1</span>
+<h4 data-i18n="step1-title" class="font-bold text-sm text-brand-navy mb-1">Sourcing & Screening</h4>
+<p data-i18n="step1-desc" class="text-xs text-slate-600">Background and criminal record verification across Ethiopia.</p>
+</div>
+<div class="bg-brand-light p-5 rounded-xl border border-slate-200">
+<span class="bg-brand-navy text-white text-xs font-bold w-7 h-7 rounded-full flex items-center justify-center mx-auto mb-3">2</span>
+<h4 data-i18n="step2-title" class="font-bold text-sm text-brand-navy mb-1">Medical Clearance</h4>
+<p data-i18n="step2-desc" class="text-xs text-slate-600">Strict health check matching GCC standards for infectious diseases.</p>
+</div>
+<div class="bg-brand-light p-5 rounded-xl border border-slate-200">
+<span class="bg-brand-navy text-white text-xs font-bold w-7 h-7 rounded-full flex items-center justify-center mx-auto mb-3">3</span>
+<h4 data-i18n="step3-title" class="font-bold text-sm text-brand-navy mb-1">Pre-Departure Training</h4>
+<p data-i18n="step3-desc" class="text-xs text-slate-600">Arabic language basics, appliance usage, and cultural expectations.</p>
+</div>
+<div class="bg-brand-light p-5 rounded-xl border border-slate-200">
+<span class="bg-brand-navy text-white text-xs font-bold w-7 h-7 rounded-full flex items-center justify-center mx-auto mb-3">4</span>
+<h4 data-i18n="step4-title" class="font-bold text-sm text-brand-navy mb-1">Visa & Attestation</h4>
+<p data-i18n="step4-desc" class="text-xs text-slate-600">Biometrics processing and official embassy contract stamping.</p>
+</div>
+<div class="bg-brand-light p-5 rounded-xl border border-slate-200">
+<span class="bg-brand-navy text-white text-xs font-bold w-7 h-7 rounded-full flex items-center justify-center mx-auto mb-3">5</span>
+<h4 data-i18n="step5-title" class="font-bold text-sm text-brand-navy mb-1">Deployment Support</h4>
+<p data-i18n="step5-desc" class="text-xs text-slate-600">Flight management and open tracking lines for the 2-year tenure.</p>
+</div>
+</div>
 
-    <!-- Training Deep-Dive Showcase Container -->
-    <section class="py-16 bg-brand-light">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-10">
-                <h2 class="text-2xl md:text-3xl font-bold text-brand-navy">Pre-Deployment Training Pillars</h2>
-                <p class="text-slate-600 text-sm mt-2">Mitigating operational errors via practical skill checks before the flight.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white p-5 rounded-xl border border-slate-200">
-                    <h4 class="font-bold text-brand-navy flex items-center gap-2"><i class="fas fa-home text-brand-gold text-sm"></i> Modern Home Management</h4>
-                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">Practical modules on smart washers, advanced vacuums, specialized steam ironers, and deep kitchen appliance procedures.</p>
-                </div>
-                <div class="bg-white p-5 rounded-xl border border-slate-200">
-                    <h4 class="font-bold text-brand-navy flex items-center gap-2"><i class="fas fa-gavel text-brand-gold text-sm"></i> Cultural Alignment</h4>
-                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">Educating deployment pipelines on Middle Eastern traditions, domestic privacy layouts, clothing decorums, and family respect expectations.</p>
-                </div>
-                <div class="bg-white p-5 rounded-xl border border-slate-200">
-                    <h4 class="font-bold text-brand-navy flex items-center gap-2"><i class="fas fa-exclamation-triangle text-brand-gold text-sm"></i> Crisis Resolution Channel</h4>
-                    <p class="text-xs text-slate-600 mt-2 leading-relaxed">Teaching candidates how to communicate operational issues clearly, flag personal health concerns, and handle safe escalation rules.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="mt-12 bg-brand-navy text-white p-6 md:p-8 rounded-2xl shadow-xl">
+<div class="flex items-center space-x-3 mb-6">
+<i class="fas fa-history text-brand-gold text-xl"></i>
+<h3 data-i18n="timeline-title" class="text-xl font-bold">Standard Standardized Process Timeline</h3>
+</div>
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="border-l-2 border-brand-gold pl-4">
+<p data-i18n="time1-day" class="text-xs text-brand-gold font-bold uppercase tracking-wider">Day 1 - 2</p>
+<h5 data-i18n="time1-title" class="font-bold text-sm mt-1">Demand Verification</h5>
+<p data-i18n="time1-desc" class="text-xs text-slate-400 mt-1">Review criteria through automated official channels like Musaned.</p>
+</div>
+<div class="border-l-2 border-brand-gold pl-4">
+<p data-i18n="time2-day" class="text-xs text-brand-gold font-bold uppercase tracking-wider">Day 3 - 7</p>
+<h5 data-i18n="time2-title" class="font-bold text-sm mt-1">Screening & Match</h5>
+<p data-i18n="time2-desc" class="text-xs text-slate-400 mt-1">Filtering active candidates by age, training background, and profile maps.</p>
+</div>
+<div class="border-l-2 border-brand-gold pl-4">
+<p data-i18n="time3-day" class="text-xs text-brand-gold font-bold uppercase tracking-wider">Day 8 - 20</p>
+<h5 data-i18n="time3-title" class="font-bold text-sm mt-1">Medical Processing</h5>
+<p data-i18n="time3-desc" class="text-xs text-slate-400 mt-1">GAMCA diagnostic clearances, local police vetting, passport validation.</p>
+</div>
+<div class="border-l-2 border-brand-gold pl-4">
+<p data-i18n="time4-day" class="text-xs text-brand-gold font-bold uppercase tracking-wider">Day 25 - 35</p>
+<h5 data-i18n="time4-title" class="font-bold text-sm mt-1">Visa Stamp & Flight</h5>
+<p data-i18n="time4-desc" class="text-xs text-slate-400 mt-1">Final embassy clearance loops, travel booking logistics, orientation wrap.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- Section: Services Matrix & Target Demands Structure -->
-    <section id="services" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-10">
-            <h2 class="text-3xl font-bold text-brand-navy">Specialized Work Scope &amp; Target Placements</h2>
-            <p class="text-slate-600 text-sm mt-2">Clear categorization of active workflows deployed regularly through our lanes.</p>
-        </div>
+<section class="py-16 bg-brand-light">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-10">
+<h2 data-i18n="pillars-title" class="text-2xl md:text-3xl font-bold text-brand-navy">Pre-Deployment Training Pillars</h2>
+<p data-i18n="pillars-subtitle" class="text-slate-600 text-sm mt-2">Mitigating operational errors via practical skill checks before the flight.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="bg-white p-5 rounded-xl border border-slate-200">
+<h4 data-i18n="pillar1-title" class="font-bold text-brand-navy flex items-center gap-2"><i class="fas fa-home text-brand-gold text-sm"></i> Modern Home Management</h4>
+<p data-i18n="pillar1-desc" class="text-xs text-slate-600 mt-2 leading-relaxed">Practical modules on smart washers, advanced vacuums, specialized steam ironers, and deep kitchen appliance procedures.</p>
+</div>
+<div class="bg-white p-5 rounded-xl border border-slate-200">
+<h4 data-i18n="pillar2-title" class="font-bold text-brand-navy flex items-center gap-2"><i class="fas fa-gavel text-brand-gold text-sm"></i> Cultural Alignment</h4>
+<p data-i18n="pillar2-desc" class="text-xs text-slate-600 mt-2 leading-relaxed">Educating deployment pipelines on Middle Eastern traditions, domestic privacy layouts, clothing decorums, and family respect expectations.</p>
+</div>
+<div class="bg-white p-5 rounded-xl border border-slate-200">
+<h4 data-i18n="pillar3-title" class="font-bold text-brand-navy flex items-center gap-2"><i class="fas fa-exclamation-triangle text-brand-gold text-sm"></i> Crisis Resolution Channel</h4>
+<p data-i18n="pillar3-desc" class="text-xs text-slate-600 mt-2 leading-relaxed">Teaching candidates how to communicate operational issues clearly, flag personal health concerns, and handle safe escalation rules.</p>
+</div>
+</div>
+</div>
+</section>
 
-        <div class="overflow-x-auto bg-white rounded-xl shadow-sm border border-slate-200">
-            <table class="w-full text-left border-collapse">
-                <thead>
-                    <tr class="bg-brand-navy text-white text-xs uppercase tracking-wider">
-                        <th class="p-4 font-bold">Job Category</th>
-                        <th class="p-4 font-bold">Target Destinations</th>
-                        <th class="p-4 font-bold">Standard Training Provided</th>
-                    </tr>
-                </thead>
-                <tbody class="text-sm divide-y divide-slate-200">
-                    <tr class="hover:bg-slate-50 transition">
-                        <td class="p-4 font-bold text-brand-navy">Housemaids / Domestic Helpers</td>
-                        <td class="p-4 text-xs font-semibold text-slate-700">KSA, Kuwait, Jordan</td>
-                        <td class="p-4 text-slate-600 text-xs">Household administration, mandatory language fundamentals, and kitchen tools control.</td>
-                    </tr>
-                    <tr class="hover:bg-slate-50 transition">
-                        <td class="p-4 font-bold text-brand-navy">Home Cooks &amp; Chefs</td>
-                        <td class="p-4 text-xs font-semibold text-slate-700">KSA, Kuwait, Jordan</td>
-                        <td class="p-4 text-slate-600 text-xs">Middle Eastern basic gastronomy methods and professional kitchen environment hygiene.</td>
-                    </tr>
-                    <tr class="hover:bg-slate-50 transition">
-                        <td class="p-4 font-bold text-brand-navy">Private Drivers</td>
-                        <td class="p-4 text-xs font-semibold text-slate-700">KSA, Kuwait, Jordan</td>
-                        <td class="p-4 text-slate-600 text-xs">Navigation systems management, proper transit etiquette guidelines, basic engine tracking.</td>
-                    </tr>
-                    <tr class="hover:bg-slate-50 transition">
-                        <td class="p-4 font-bold text-brand-navy">Nannies &amp; Caregivers</td>
-                        <td class="p-4 text-xs font-semibold text-slate-700">KSA, Kuwait, Jordan</td>
-                        <td class="p-4 text-slate-600 text-xs">Infant security basics, pediatric nutrition monitoring, and elder support techniques.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+<section id="services" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-10">
+<h2 data-i18n="matrix-title" class="text-3xl font-bold text-brand-navy">Specialized Work Scope & Target Placements</h2>
+<p data-i18n="matrix-subtitle" class="text-slate-600 text-sm mt-2">Clear categorization of active workflows deployed regularly through our lanes.</p>
+</div>
 
-    <!-- Salary Matrix Grid Section -->
-    <section id="salaries" class="py-12 bg-slate-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-8">
-                <h3 class="text-2xl font-bold text-brand-gold"><i class="fas fa-coins mr-2"></i> Transparent Salary Framework</h3>
-                <p class="text-xs text-slate-400 mt-1">Official contractual monthly baselines across core destinations.</p>
-            </div>
-            
-            <div class="overflow-x-auto bg-slate-800 rounded-xl border border-slate-700">
-                <table class="w-full text-left text-xs md:text-sm">
-                    <thead>
-                        <tr class="bg-slate-950 text-slate-400 font-bold border-b border-slate-700">
-                            <th class="p-4">Destination Country</th>
-                            <th class="p-4">Job Category</th>
-                            <th class="p-4">Experience Horizon</th>
-                            <th class="p-4 text-brand-gold">Monthly Remuneration Range</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-700 text-slate-200">
-                        <tr>
-                            <td class="p-4 font-bold flex items-center gap-2"><img src="https://flagcdn.com/sa.svg" class="w-5" alt=""> Saudi Arabia</td>
-                            <td class="p-4">Housemaid</td>
-                            <td class="p-4">Fresh / First Time</td>
-                            <td class="p-4 font-bold text-brand-gold">1,000 SAR</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 font-bold flex items-center gap-2"><img src="https://flagcdn.com/sa.svg" class="w-5" alt=""> Saudi Arabia</td>
-                            <td class="p-4">Housemaid</td>
-                            <td class="p-4">2+ Years Gulf Exp.</td>
-                            <td class="p-4 font-bold text-brand-gold">1,200 SAR</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 font-bold flex items-center gap-2"><img src="https://flagcdn.com/sa.svg" class="w-5" alt=""> Saudi Arabia</td>
-                            <td class="p-4">Male Driver</td>
-                            <td class="p-4">Fresh / First Time</td>
-                            <td class="p-4 font-bold text-brand-gold">1,000 SAR</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 font-bold flex items-center gap-2"><img src="https://flagcdn.com/kw.svg" class="w-5" alt=""> Kuwait</td>
-                            <td class="p-4">Housemaid</td>
-                            <td class="p-4">Fresh / First Time</td>
-                            <td class="p-4 font-bold text-brand-gold">100 KWD</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 font-bold flex items-center gap-2"><img src="https://flagcdn.com/kw.svg" class="w-5" alt=""> Kuwait</td>
-                            <td class="p-4">Housemaid</td>
-                            <td class="p-4">2+ Years Gulf Exp.</td>
-                            <td class="p-4 font-bold text-brand-gold">110 KWD</td>
-                        </tr>
-                        <tr>
-                            <td class="p-4 font-bold flex items-center gap-2"><img src="https://flagcdn.com/jo.svg" class="w-5" alt=""> Jordan</td>
-                            <td class="p-4">Domestic Worker (All)</td>
-                            <td class="p-4">Minimum Legal Threshold</td>
-                            <td class="p-4 font-bold text-brand-gold">271 USD (Net)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+<div class="overflow-x-auto bg-white rounded-xl shadow-sm border border-slate-200">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-brand-navy text-white text-xs uppercase tracking-wider">
+<th data-i18n="th-job" class="p-4 font-bold">Job Category</th>
+<th data-i18n="th-dest" class="p-4 font-bold">Target Destinations</th>
+<th data-i18n="th-train" class="p-4 font-bold">Standard Training Provided</th>
+</tr>
+</thead>
+<tbody class="text-sm divide-y divide-slate-200">
+<tr class="hover:bg-slate-50 transition">
+<td data-i18n="job1-title" class="p-4 font-bold text-brand-navy">Housemaids / Domestic Helpers</td>
+<td class="p-4 text-xs font-semibold text-slate-700">KSA, Kuwait, Jordan</td>
+<td data-i18n="job1-desc" class="p-4 text-slate-600 text-xs">Household administration, mandatory language fundamentals, and kitchen tools control.</td>
+</tr>
+<tr class="hover:bg-slate-50 transition">
+<td data-i18n="job2-title" class="p-4 font-bold text-brand-navy">Home Cooks & Chefs</td>
+<td class="p-4 text-xs font-semibold text-slate-700">KSA, Kuwait, Jordan</td>
+<td data-i18n="job2-desc" class="p-4 text-slate-600 text-xs">Middle Eastern basic gastronomy methods and professional kitchen environment hygiene.</td>
+</tr>
+<tr class="hover:bg-slate-50 transition">
+<td data-i18n="job3-title" class="p-4 font-bold text-brand-navy">Private Drivers</td>
+<td class="p-4 text-xs font-semibold text-slate-700">KSA, Kuwait, Jordan</td>
+<td data-i18n="job3-desc" class="p-4 text-slate-600 text-xs">Navigation systems management, proper transit etiquette guidelines, basic engine tracking.</td>
+</tr>
+<tr class="hover:bg-slate-50 transition">
+<td data-i18n="job4-title" class="p-4 font-bold text-brand-navy">Nannies & Caregivers</td>
+<td class="p-4 text-xs font-semibold text-slate-700">KSA, Kuwait, Jordan</td>
+<td data-i18n="job4-desc" class="p-4 text-slate-600 text-xs">Infant security basics, pediatric nutrition monitoring, and elder support techniques.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 
-            <!-- Mandatory Corporate Benefits Mandate Row -->
-            <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 bg-slate-950 p-6 rounded-xl border border-slate-800">
-                <div class="text-xs">
-                    <h5 class="text-brand-gold font-bold uppercase mb-1"><i class="fas fa-utensils"></i> Food &amp; Living Costs</h5>
-                    <p class="text-slate-400">Completely paid standard accommodation and 3 meals daily per regulation parameters.</p>
-                </div>
-                <div class="text-xs">
-                    <h5 class="text-brand-gold font-bold uppercase mb-1"><i class="fas fa-heartbeat"></i> Medical Coverage</h5>
-                    <p class="text-slate-400">Comprehensive health safety coverage paid entirely for the full 2-year deployment duration.</p>
-                </div>
-                <div class="text-xs">
-                    <h5 class="text-brand-gold font-bold uppercase mb-1"><i class="fas fa-plane"></i> Flight Coverage</h5>
-                    <p class="text-slate-400">Complimentary departure air travel tickets and 2-year contract completion return flights.</p>
-                </div>
-                <div class="text-xs">
-                    <h5 class="text-brand-gold font-bold uppercase mb-1"><i class="fas fa-credit-card"></i> Tracked Wage Channels</h5>
-                    <p class="text-slate-400">Musaned WPS (KSA) and Public Authority for Manpower (Kuwait) automated transfers.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="salaries" class="py-12 bg-slate-900 text-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="mb-8">
+<h3 data-i18n="salary-title" class="text-2xl font-bold text-brand-gold"><i class="fas fa-coins mr-2"></i> Transparent Salary Framework</h3>
+<p data-i18n="salary-subtitle" class="text-xs text-slate-400 mt-1">Official contractual monthly baselines across core destinations.</p>
+</div>
 
-    <!-- Worker Welfare Affirmation Block -->
-    <section class="bg-amber-50 border-y border-amber-200 py-12">
-        <div class="max-w-4xl mx-auto text-center px-4">
-            <h3 class="text-xl font-bold text-amber-900 flex items-center justify-center gap-2"><i class="fas fa-handshake"></i> Worker Protection &amp; Ethical Guarantee</h3>
-            <p class="text-sm text-amber-800 mt-2 leading-relaxed">
-                We operate a strict zero-abandonment policy. Dallol Star runs a dedicated 24/7 hotline mechanism ensuring workers can voice issues regarding salary distribution timeline gaps or healthcare concerns immediately. We strictly partner with accredited agencies in Saudi Arabia, Kuwait, and Jordan that uphold human rights.
-            </p>
-        </div>
-    </section>
+<div class="overflow-x-auto bg-slate-800 rounded-xl border border-slate-700">
+<table class="w-full text-left text-xs md:text-sm">
+<thead>
+<tr class="bg-slate-950 text-slate-400 font-bold border-b border-slate-700">
+<th data-i18n="th-sal-dest" class="p-4">Destination Country</th>
+<th data-i18n="th-sal-job" class="p-4">Job Category</th>
+<th data-i18n="th-sal-exp" class="p-4">Experience Horizon</th>
+<th data-i18n="th-sal-rem" class="p-4 text-brand-gold">Monthly Remuneration Range</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-700 text-slate-200">
+<tr>
+<td data-i18n="sal1-dest" class="p-4 font-bold flex items-center gap-2"><img src="https://flagcdn.com/sa.svg" class="w-5" alt=""> Saudi Arabia</td>
+<td data-i18n="sal1-job" class="p-4">Housemaid</td>
+<td data-i18n="sal1-exp" class="p-4">Fresh / First Time</td>
+<td class="p-4 font-bold text-brand-gold">1,000 SAR</td>
+</tr>
+<tr>
+<td data-i18n="sal2-dest" class="p-4 font-bold flex items-center gap-2"><img src="https://flagcdn.com/sa.svg" class="w-5" alt=""> Saudi Arabia</td>
+<td data-i18n="sal2-job" class="p-4">Housemaid</td>
+<td data-i18n="sal2-exp" class="p-4">2+ Years Gulf Exp.</td>
+<td class="p-4 font-bold text-brand-gold">1,200 SAR</td>
+</tr>
+<tr>
+<td data-i18n="sal3-dest" class="p-4 font-bold flex items-center gap-2"><img src="https://flagcdn.com/sa.svg" class="w-5" alt=""> Saudi Arabia</td>
+<td data-i18n="sal3-job" class="p-4">Male Driver</td>
+<td data-i18n="sal3-exp" class="p-4">Fresh / First Time</td>
+<td class="p-4 font-bold text-brand-gold">1,000 SAR</td>
+</tr>
+<tr>
+<td data-i18n="sal4-dest" class="p-4 font-bold flex items-center gap-2"><img src="https://flagcdn.com/kw.svg" class="w-5" alt=""> Kuwait</td>
+<td data-i18n="sal4-job" class="p-4">Housemaid</td>
+<td data-i18n="sal4-exp" class="p-4">Fresh / First Time</td>
+<td class="p-4 font-bold text-brand-gold">100 KWD</td>
+</tr>
+<tr>
+<td data-i18n="sal5-dest" class="p-4 font-bold flex items-center gap-2"><img src="https://flagcdn.com/kw.svg" class="w-5" alt=""> Kuwait</td>
+<td data-i18n="sal5-job" class="p-4">Housemaid</td>
+<td data-i18n="sal5-exp" class="p-4">2+ Years Gulf Exp.</td>
+<td class="p-4 font-bold text-brand-gold">110 KWD</td>
+</tr>
+<tr>
+<td data-i18n="sal6-dest" class="p-4 font-bold flex items-center gap-2"><img src="https://flagcdn.com/jo.svg" class="w-5" alt=""> Jordan</td>
+<td data-i18n="sal6-job" class="p-4">Domestic Worker (All)</td>
+<td data-i18n="sal6-exp" class="p-4">Minimum Legal Threshold</td>
+<td class="p-4 font-bold text-brand-gold">271 USD (Net)</td>
+</tr>
+</tbody>
+</table>
+</div>
 
-    <!-- B2B Corporate Intent Demands Upload Form Section -->
-    <section id="corporate-form" class="py-16 max-w-3xl mx-auto px-4">
-        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
-            <div class="mb-6 text-center">
-                <h3 class="text-2xl font-bold text-brand-navy">International Agency Request Portal</h3>
-                <p class="text-xs text-slate-500 mt-1">Submit your official workforce criteria parameters or demand files directly to our processing desk.</p>
-            </div>
-            <form action="#" method="POST" class="space-y-4">
-                <div class="grid grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Office Name *</label>
-                        <input type="text" required class="w-full text-sm border border-slate-300 p-2.5 rounded-lg focus:outline-none focus:border-brand-gold">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Target Territory *</label>
-                        <select class="w-full text-sm border border-slate-300 p-2.5 rounded-lg focus:outline-none focus:border-brand-gold">
-                            <option>Kingdom of Saudi Arabia</option>
-                            <option>State of Kuwait</option>
-                            <option>Hashemite Kingdom of Jordan</option>
-                        </select>
-                    </div>
-                </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Official Email Contact *</label>
-                    <input type="email" required class="w-full text-sm border border-slate-300 p-2.5 rounded-lg focus:outline-none focus:border-brand-gold">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Upload Demand Document / Visa Copies (PDF/Word) *</label>
-                    <input type="file" required class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-slate-100 file:text-slate-700 hover:file:bg-slate-200">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold uppercase text-slate-600 mb-1">Detailed Workforce Requirements Description</label>
-                    <textarea rows="3" class="w-full text-sm border border-slate-300 p-2.5 rounded-lg focus:outline-none focus:border-brand-gold" placeholder="Specify age bands, experience targets, or contract terms..."></textarea>
-                </div>
-                <button type="submit" class="w-full bg-brand-navy hover:bg-brand-blue text-white text-sm font-bold py-3 rounded-lg transition uppercase tracking-wider">
-                    Dispatch Demand Package
-                </button>
-            </form>
-        </div>
-    </section>
+<div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 bg-slate-950 p-6 rounded-xl border border-slate-800">
+<div class="text-xs">
+<h5 data-i18n="benefit1-title" class="text-brand-gold font-bold uppercase mb-1"><i class="fas fa-utensils"></i> Food & Living Costs</h5>
+<p data-i18n="benefit1-desc" class="text-slate-400">Completely paid standard accommodation and 3 meals daily per regulation parameters.</p>
+</div>
+<div class="text-xs">
+<h5 data-i18n="benefit2-title" class="text-brand-gold font-bold uppercase mb-1"><i class="fas fa-heartbeat"></i> Medical Coverage</h5>
+<p data-i18n="benefit2-desc" class="text-slate-400">Comprehensive health safety coverage paid entirely for the full 2-year deployment duration.</p>
+</div>
+<div class="text-xs">
+<h5 data-i18n="benefit3-title" class="text-brand-gold font-bold uppercase mb-1"><i class="fas fa-plane"></i> Flight Coverage</h5>
+<p data-i18n="benefit3-desc" class="text-slate-400">Complimentary departure air travel tickets and 2-year contract completion return flights.</p>
+</div>
+<div class="text-xs">
+<h5 data-i18n="benefit4-title" class="text-brand-gold font-bold uppercase mb-1"><i class="fas fa-credit-card"></i> Tracked Wage Channels</h5>
+<p data-i18n="benefit4-desc" class="text-slate-400">Musaned WPS (KSA) and Public Authority for Manpower (Kuwait) automated transfers.</p>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- Local Candidates Candidate Screening Registration Layout Grid -->
-    <section id="jobseekers" class="py-16 bg-brand-navy text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12">
-            <div>
-                <span class="text-xs text-brand-gold uppercase tracking-wider font-bold">ለሀገር ውስጥ ሥራ ፈላጊዎች</span>
-                <h3 class="text-3xl font-bold mt-2">የስራ ዕድል ምዝገባና ማሟያ መስፈርቶች</h3>
-                <p class="text-xs text-slate-400 mt-2">የሳውዲ፣ ኩዌት እና ዮርዳኖስ የቤት ውስጥ ሰራተኛ፣ ሹፌር እና ሞግዚት የስራ ቅጥር ለማመልከት ከታች የተቀመጡትን መመዘኛዎች ማሟላት ይጠበቅብዎታል።</p>
-                
-                <div class="mt-6 space-y-4 text-xs">
-                    <h4 class="font-bold text-brand-gold text-sm border-b border-slate-700 pb-1">Eligibility Criteria / ማሟላት ያለብዎት ነገሮች:</h4>
-                    <ul class="space-y-2 text-slate-300 list-disc list-inside">
-                        <li>Valid original Ethiopian Passport (የፀና የኢትዮጵያ ፓስፖርት)</li>
-                        <li>Clean health screening status &amp; GAMCA clearance status.</li>
-                        <li>Minimum basic education level background limits.</li>
-                        <li>No prior criminal cases record profile within local jurisdictions.</li>
-                        <li>Standard 2-year deployment timeline obligation agreement.</li>
-                    </ul>
-                </div>
-            </div>
+<section class="bg-amber-50 border-y border-amber-200 py-12">
+<div class="max-w-4xl mx-auto text-center px-4">
+<h3 data-i18n="protection-title" class="text-xl font-bold text-amber-900 flex items-center justify-center gap-2"><i class="fas fa-handshake"></i> Worker Protection & Ethical Guarantee</h3>
+<p data-i18n="protection-desc" class="text-sm text-amber-800 mt-2 leading-relaxed">
+We operate a strict zero-abandonment policy. Dallol Star runs a dedicated 24/7 hotline mechanism ensuring workers can voice issues regarding salary distribution timeline gaps or healthcare concerns immediately. We strictly partner with accredited agencies in Saudi Arabia, Kuwait, and Jordan that uphold human rights.
+</p>
+</div>
+</section>
 
-            <!-- Simple Candidate Input Form Frame -->
-            <div class="bg-brand-blue p-6 rounded-2xl border border-slate-700">
-                <h4 class="text-base font-bold text-center text-brand-gold mb-4">Candidate Quick Register / ፈጣን መመዝገቢያ ፎርም</h4>
-                <form class="space-y-3 text-slate-900">
-                    <div>
-                        <label class="block text-[11px] text-slate-300 font-bold uppercase mb-1">Full Name / ሙሉ ስም *</label>
-                        <input type="text" required class="w-full text-xs p-2 rounded border border-slate-600 focus:outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-[11px] text-slate-300 font-bold uppercase mb-1">Phone Number / ስልክ ቁጥር *</label>
-                        <input type="tel" required class="w-full text-xs p-2 rounded border border-slate-600 focus:outline-none" placeholder="09...">
-                    </div>
-                    <div>
-                        <label class="block text-[11px] text-slate-300 font-bold uppercase mb-1">Target Country / መሄድ የሚፈልጉበት ሀገር *</label>
-                        <select class="w-full text-xs p-2 rounded border border-slate-600 focus:outline-none">
-                            <option>Saudi Arabia / ሳውዲ አረቢያ</option>
-                            <option>Kuwait / ኩዌት</option>
-                            <option>Jordan / ዮርዳኖስ</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-[11px] text-slate-300 font-bold uppercase mb-1">Passport Copy or Photo / የፓስፖርት ፎቶ *</label>
-                        <input type="file" required class="w-full text-xs text-slate-400 file:mr-3 file:py-1.5 file:px-3 file:rounded file:border-0 file:bg-slate-800 file:text-slate-200">
-                    </div>
-                    <button type="submit" class="w-full bg-brand-gold text-brand-navy font-bold text-xs py-2.5 rounded shadow hover:bg-yellow-600 transition uppercase tracking-wider mt-2">
-                        Submit Application / ይመዝገቡ
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
+<section id="corporate-form" class="py-16 max-w-3xl mx-auto px-4">
+<div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
+<div class="mb-6 text-center">
+<h3 data-i18n="form1-title" class="text-2xl font-bold text-brand-navy">International Agency Request Portal</h3>
+<p data-i18n="form1-subtitle" class="text-xs text-slate-500 mt-1">Submit your official workforce criteria parameters or demand files directly to our processing desk.</p>
+</div>
+<form action="#" method="POST" class="space-y-4">
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label data-i18n="label-office" class="block text-xs font-bold uppercase text-slate-600 mb-1">Office Name *</label>
+<input type="text" required class="w-full text-sm border border-slate-300 p-2.5 rounded-lg focus:outline-none focus:border-brand-gold">
+</div>
+<div>
+<label data-i18n="label-territory" class="block text-xs font-bold uppercase text-slate-600 mb-1">Target Territory *</label>
+<select class="w-full text-sm border border-slate-300 p-2.5 rounded-lg focus:outline-none focus:border-brand-gold">
+<option data-i18n="opt-ksa">Kingdom of Saudi Arabia</option>
+<option data-i18n="opt-kuwait">State of Kuwait</option>
+<option data-i18n="opt-jordan">Hashemite Kingdom of Jordan</option>
+</select>
+</div>
+</div>
+<div>
+<label data-i18n="label-email" class="block text-xs font-bold uppercase text-slate-600 mb-1">Official Email Contact *</label>
+<input type="email" required class="w-full text-sm border border-slate-300 p-2.5 rounded-lg focus:outline-none focus:border-brand-gold">
+</div>
+<div>
+<label data-i18n="label-file" class="block text-xs font-bold uppercase text-slate-600 mb-1">Upload Demand Document / Visa Copies (PDF/Word) *</label>
+<input type="file" required class="w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-slate-100 file:text-slate-700 hover:file:bg-slate-200">
+</div>
+<div>
+<label data-i18n="label-desc" class="block text-xs font-bold uppercase text-slate-600 mb-1">Detailed Workforce Requirements Description</label>
+<textarea rows="3" class="w-full text-sm border border-slate-300 p-2.5 rounded-lg focus:outline-none focus:border-brand-gold" placeholder="Specify age bands, experience targets, or contract terms..."></textarea>
+</div>
+<button type="submit" data-i18n="btn-submit-corporate" class="w-full bg-brand-navy hover:bg-brand-blue text-white text-sm font-bold py-3 rounded-lg transition uppercase tracking-wider">
+Dispatch Demand Package
+</button>
+</form>
+</div>
+</section>
 
-    <!-- Footer Area: Office Location Verification & Direct Anchor Anchors Map -->
-    <footer id="contact" class="bg-slate-950 text-white pt-16 pb-8 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8 text-sm">
-            
-            <!-- Legal Verification Column -->
-            <div>
-                <h4 class="text-brand-gold font-bold uppercase tracking-wider text-xs mb-4">Legal Corporate Entity</h4>
-                <p class="font-bold text-slate-200">Dallol-Star Manpower Foreign Employment Agent</p>
-                <p class="text-xs text-slate-400 mt-2 leading-relaxed">
-                    Licensed recruitment operator specialized in GCC deployments. Delivering swift, legal compliance handling parameters across international logistics networks.
-                </p>
-                <p class="text-xs text-slate-500 mt-4 font-mono">Owner/GM: Mehdi Mohammedside Yemam</p>
-            </div>
+<section id="jobseekers" class="py-16 bg-brand-navy text-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12">
+<div>
+<span data-i18n="seeker-tag" class="text-xs text-brand-gold uppercase tracking-wider font-bold">ለሀገር ውስጥ ሥራ ፈላጊዎች</span>
+<h3 data-i18n="seeker-title" class="text-3xl font-bold mt-2">የስራ ዕድል ምዝገባና ማሟያ መስፈርቶች</h3>
+<p data-i18n="seeker-desc" class="text-xs text-slate-400 mt-2">የሳውዲ፣ ኩዌት እና ዮርዳኖስ የቤት ውስጥ ሰራተኛ፣ ሹፌር እና ሞግዚት የስራ ቅጥር ለማመልከት ከታች የተቀመጡትን መመዘኛዎች ማሟላት ይጠበቅብዎታል።</p>
 
-            <!-- Address Trace Fields -->
-            <div>
-                <h4 class="text-brand-gold font-bold uppercase tracking-wider text-xs mb-4">Physical Head Office</h4>
-                <ul class="space-y-2 text-xs text-slate-300">
-                    <li><i class="fas fa-map-marker-alt text-brand-gold mr-2"></i> Region: Addis Ababa, Ethiopia</li>
-                    <li><i class="fas fa-city text-brand-gold mr-2"></i> Sub-City: Addis Ketema, Woreda 06</li>
-                    <li><i class="fas fa-building text-brand-gold mr-2"></i> Kebele 1249, House Number 1249</li>
-                    <li><i class="fas fa-layer-group text-brand-gold mr-2"></i> 2nd Floor, Office Cabinets: 203, 204, 205</li>
-                    <li><i class="fas fa-clock text-brand-gold mr-2"></i> Mon - Sat: 8:00 AM - 6:00 PM</li>
-                </ul>
-            </div>
+<div class="mt-6 space-y-4 text-xs">
+<h4 data-i18n="criteria-title" class="font-bold text-brand-gold text-sm border-b border-slate-700 pb-1">Eligibility Criteria / ማሟላት ያለብዎት ነገሮች:</h4>
+<ul class="space-y-2 text-slate-300 list-disc list-inside">
+<li data-i18n="crit1">Valid original Ethiopian Passport (የፀና የኢትዮጵያ ፓስፖርት)</li>
+<li data-i18n="crit2">Clean health screening status & GAMCA clearance status.</li>
+<li data-i18n="crit3">Minimum basic education level background limits.</li>
+<li data-i18n="crit4">No prior criminal cases record profile within local jurisdictions.</li>
+<li data-i18n="crit5">Standard 2-year deployment timeline obligation agreement.</li>
+</ul>
+</div>
+</div>
 
-            <!-- Realtime Quick Link Points -->
-            <div>
-                <h4 class="text-brand-gold font-bold uppercase tracking-wider text-xs mb-4">Direct Contact Matrix</h4>
-                <p class="text-xs text-slate-300 mb-3">Reach out via official support frameworks for quick response parameters:</p>
-                <a href="tel:0911661718" class="block font-mono text-brand-gold font-bold text-base mb-2"><i class="fas fa-phone-alt text-slate-400 mr-2 text-xs"></i> 0911661718</a>
-                <a href="mailto:dallolstarma@gmail.com" class="block text-xs font-mono text-slate-300 hover:text-brand-gold transition mb-4"><i class="fas fa-envelope text-slate-400 mr-2"></i> dallolstarma@gmail.com</a>
-                
-                <div class="flex space-x-3">
-                    <a href="https://wa.me/251911661718" target="_blank" class="w-9 h-9 rounded-full bg-green-600 flex items-center justify-center text-white hover:scale-110 transition"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://t.me/0911661718" target="_blank" class="w-9 h-9 rounded-full bg-blue-500 flex items-center justify-center text-white hover:scale-110 transition"><i class="fab fa-telegram-plane"></i></a>
-                </div>
-            </div>
-        </div>
+<div class="bg-brand-blue p-6 rounded-2xl border border-slate-700">
+<h4 data-i18n="form2-title" class="text-base font-bold text-center text-brand-gold mb-4">Candidate Quick Register / ፈጣን መመዝገቢያ ፎርም</h4>
+<form class="space-y-3 text-slate-900">
+<div>
+<label data-i18n="label-name" class="block text-[11px] text-slate-300 font-bold uppercase mb-1">Full Name / ሙሉ ስም *</label>
+<input type="text" required class="w-full text-xs p-2 rounded border border-slate-600 focus:outline-none">
+</div>
+<div>
+<label data-i18n="label-phone" class="block text-[11px] text-slate-300 font-bold uppercase mb-1">Phone Number / ስልክ ቁጥር *</label>
+<input type="tel" required class="w-full text-xs p-2 rounded border border-slate-600 focus:outline-none" placeholder="09...">
+</div>
+<div>
+<label data-i18n="label-target" class="block text-[11px] text-slate-300 font-bold uppercase mb-1">Target Country / መሄድ የሚፈልጉበት ሀገር *</label>
+<select class="w-full text-xs p-2 rounded border border-slate-600 focus:outline-none">
+<option data-i18n="opt-sa-mix">Saudi Arabia / ሳውዲ አረቢያ</option>
+<option data-i18n="opt-kw-mix">Kuwait / ኩዌት</option>
+<option data-i18n="opt-jo-mix">Jordan / ዮርዳኖስ</option>
+</select>
+</div>
+<div>
+<label data-i18n="label-passport" class="block text-[11px] text-slate-300 font-bold uppercase mb-1">Passport Copy or Photo / የፓስፖርት ፎቶ *</label>
+<input type="file" required class="w-full text-xs text-slate-400 file:mr-3 file:py-1.5 file:px-3 file:rounded file:border-0 file:bg-slate-800 file:text-slate-200">
+</div>
+<button type="submit" data-i18n="btn-submit-seeker" class="w-full bg-brand-gold text-brand-navy font-bold text-xs py-2.5 rounded shadow hover:bg-yellow-600 transition uppercase tracking-wider mt-2">
+Submit Application / ይመዝገቡ
+</button>
+</form>
+</div>
+</div>
+</section>
 
-        <hr class="border-slate-800 max-w-7xl mx-auto my-8">
+<footer id="contact" class="bg-slate-950 text-white pt-16 pb-8 border-t border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8 text-sm">
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500">
-            <p>&copy; 2026 Dallol-Star Manpower Agent. All Rights Vetted and Reserved.</p>
-            <p class="mt-2 sm:mt-0">Proclamations 923/2016 &amp; 1246/2021 Compliant Platform File Ref: dallostar.docx</p>
-        </div>
-    </footer>
+<div>
+<h4 data-i18n="footer-col1" class="text-brand-gold font-bold uppercase tracking-wider text-xs mb-4">Legal Corporate Entity</h4>
+<p class="font-bold text-slate-200">Dallol-Star Manpower Foreign Employment Agent</p>
+<p data-i18n="footer-desc" class="text-xs text-slate-400 mt-2 leading-relaxed">
+Licensed recruitment operator specialized in GCC deployments. Delivering swift, legal compliance handling parameters across international logistics networks.
+</p>
+<p class="text-xs text-slate-500 mt-4 font-mono">Owner/GM: Mehdi Mohammedside Yemam</p>
+</div>
 
-    <!-- Fixed Floating Sticky Action Element -->
-    <div class="fixed bottom-5 right-5 z-50">
-        <a href="https://wa.me/251911661718" target="_blank" class="bg-green-500 text-white px-4 py-3 rounded-full shadow-2xl hover:bg-green-600 transition flex items-center gap-2 font-bold text-sm">
-            <i class="fab fa-whatsapp text-lg"></i> <span class="hidden md:inline">Contact on WhatsApp</span>
-        </a>
-    </div>
+<div>
+<h4 data-i18n="footer-col2" class="text-brand-gold font-bold uppercase tracking-wider text-xs mb-4">Physical Head Office</h4>
+<ul class="space-y-2 text-xs text-slate-300">
+<li><i class="fas fa-map-marker-alt text-brand-gold mr-2"></i> <span data-i18n="addr-reg">Region: Addis Ababa, Ethiopia</span></li>
+<li><i class="fas fa-city text-brand-gold mr-2"></i> <span data-i18n="addr-sub">Sub-City: Addis Ketema, Woreda 06</span></li>
+<li><i class="fas fa-building text-brand-gold mr-2"></i> <span data-i18n="addr-keb">Kebele 1249, House Number 1249</span></li>
+<li><i class="fas fa-layer-group text-brand-gold mr-2"></i> <span data-i18n="addr-floor">2nd Floor, Office Cabinets: 203, 204, 205</span></li>
+<li><i class="fas fa-clock text-brand-gold mr-2"></i> <span data-i18n="addr-hours">Mon - Sat: 8:00 AM - 6:00 PM</span></li>
+</ul>
+</div>
 
-    <!-- Core Interactive Client-Side JavaScript -->
-    <script>
-        // Responsive Menu Framework
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
+<div>
+<h4 data-i18n="footer-col3" class="text-brand-gold font-bold uppercase tracking-wider text-xs mb-4">Direct Contact Matrix</h4>
+<p data-i18n="footer-contact-desc" class="text-xs text-slate-300 mb-3">Reach out via official support frameworks for quick response parameters:</p>
+<a href="tel:0911661718" class="block font-mono text-brand-gold font-bold text-base mb-2"><i class="fas fa-phone-alt text-slate-400 mr-2 text-xs"></i> 0911661718</a>
+<a href="mailto:dallolstarma@gmail.com" class="block text-xs font-mono text-slate-300 hover:text-brand-gold transition mb-4"><i class="fas fa-envelope text-slate-400 mr-2"></i> dallolstarma@gmail.com</a>
 
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
-        });
+<div class="flex space-x-3">
+<a href="https://wa.me/251911661718" target="_blank" class="w-9 h-9 rounded-full bg-green-600 flex items-center justify-center text-white hover:scale-110 transition"><i class="fab fa-whatsapp"></i></a>
+<a href="https://t.me/0911661718" target="_blank" class="w-9 h-9 rounded-full bg-blue-500 flex items-center justify-center text-white hover:scale-110 transition"><i class="fab fa-telegram-plane"></i></a>
+</div>
+</div>
+</div>
 
-        // Close mobile menu smoothly on clicking an anchor link
-        const navLinks = mobileMenu.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-            });
-        });
-    </script>
+<hr class="border-slate-800 max-w-7xl mx-auto my-8">
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500">
+<p>&copy; 2026 Dallol-Star Manpower Agent. <span data-i18n="footer-copy">All Rights Vetted and Reserved.</span></p>
+<p class="mt-2 sm:mt-0"><span data-i18n="footer-procl">Proclamations 923/2016 & 1246/2021 Compliant Platform</span> File Ref: dallostar.docx</p>
+</div>
+</footer>
+
+<div class="fixed bottom-5 right-5 z-50">
+<a href="https://wa.me/251911661718" target="_blank" class="bg-green-500 text-white px-4 py-3 rounded-full shadow-2xl hover:bg-green-600 transition flex items-center gap-2 font-bold text-sm">
+<i class="fab fa-whatsapp text-lg"></i> <span data-i18n="floating-wa" class="hidden md:inline">Contact on WhatsApp</span>
+</a>
+</div>
+
+<script>
+// Dictionary containing all translation pairs mapped seamlessly
+const dictionary = {
+  en: {
+    "nav-about": "About Us", "nav-process": "Our Process", "nav-services": "Services", "nav-salaries": "Salaries", "nav-jobseekers": "Job Seekers", "nav-contact": "Contact",
+    "whatsapp-btn": "B2B WhatsApp Chat", "whatsapp-line": "WhatsApp Client Line",
+    "hero-tag": "Licensed & Compliant Entity", "hero-title": "Premium Ethiopian Recruitment, Certified Excellence.", "hero-desc": "Fully authorized under Ethiopia's Overseas Employment Proclamations No. 923/2016 & 1246/2021. Delivering reliable, trained, and highly dedicated human resource pipelines to the Gulf region.",
+    "hero-btn-corporate": "Request Manpower / Partner With Us", "hero-btn-seeker": "Register to Work / ይመዝገቡ",
+    "cred-title": "Regulatory Credentials", "cred-details": "Ministry of Labor Lic: No. 923/2008 & 1246/2013", "destinations-title": "Primary Deployment Destinations",
+    "country-sa": "Saudi Arabia", "status-sa": "Musaned Ready", "country-kw": "Kuwait", "status-kw": "PAM Managed", "country-jo": "Jordan", "status-jo": "Vetted Lane",
+    "qa-title": "Quality Assurance Standard", "qa-desc": "Every single worker undergoes extensive background screening, comprehensive GAMCA health clearances, and full practical training before deployment.",
+    "about-title": "Why Partner With Us for Ethiopian Manpower?", "about-subtitle": "Dallol Star bridges the gap between top talent from Ethiopia and employers across the Gulf, mitigating deployment friction.",
+    "prop1-title": "Adaptability & Work Ethic", "prop1-desc": "Our candidates show incredible cultural resilience, fast home adaptation, and deep dedication to their work scopes.",
+    "prop2-title": "Cost-Effectiveness", "prop2-desc": "Positioning dynamic, budget-friendly domestic and labor solutions for families and companies without a single drop in workforce quality.",
+    "prop3-title": "Language & Culture Prep", "prop3-desc": "All candidates receive functional basic Arabic and English language courses alongside Middle Eastern household structure orientation.",
+    "flow-title": "The Recruitment & Deployment Pipeline", "flow-subtitle": "How we safely move demands into fully compliant deployments seamlessly.",
+    "step1-title": "Sourcing & Screening", "step1-desc": "Background and criminal record verification across Ethiopia.",
+    "step2-title": "Medical Clearance", "step2-desc": "Strict health check matching GCC standards for infectious diseases.",
+    "step3-title": "Pre-Departure Training", "step3-desc": "Arabic language basics, appliance usage, and cultural expectations.",
+    "step4-title": "Visa & Attestation", "step4-desc": "Biometrics processing and official embassy contract stamping.",
+    "step5-title": "Deployment Support", "step5-desc": "Flight management and open tracking lines for the 2-year tenure.",
+    "timeline-title": "Standard Standardized Process Timeline",
+    "time1-day": "Day 1 - 2", "time1-title": "Demand Verification", "time1-desc": "Review criteria through automated official channels like Musaned.",
+    "time2-day": "Day 3 - 7", "time2-title": "Screening & Match", "time2-desc": "Filtering active candidates by age, training background, and profile maps.",
+    "time3-day": "Day 8 - 20", "time3-title": "Medical Processing", "time3-desc": "GAMCA diagnostic clearances, local police vetting, passport validation.",
+    "time4-day": "Day 25 - 35", "time4-title": "Visa Stamp & Flight", "time4-desc": "Final embassy clearance loops, travel booking logistics, orientation wrap.",
+    "pillars-title": "Pre-Deployment Training Pillars", "pillars-subtitle": "Mitigating operational errors via practical skill checks before the flight.",
+    "pillar1-title": "Modern Home Management", "pillar1-desc": "Practical modules on smart washers, advanced vacuums, specialized steam ironers, and deep kitchen appliance procedures.",
+    "pillar2-title": "Cultural Alignment", "pillar2-desc": "Educating deployment pipelines on Middle Eastern traditions, domestic privacy layouts, clothing decorums, and family respect expectations.",
+    "pillar3-title": "Crisis Resolution Channel", "pillar3-desc": "Teaching candidates how to communicate operational issues clearly, flag personal health concerns, and handle safe escalation rules.",
+    "matrix-title": "Specialized Work Scope & Target Placements", "matrix-subtitle": "Clear categorization of active workflows deployed regularly through our lanes.",
+    "th-job": "Job Category", "th-dest": "Target Destinations", "th-train": "Standard Training Provided",
+    "job1-title": "Housemaids / Domestic Helpers", "job1-desc": "Household administration, mandatory language fundamentals, and kitchen tools control.",
+    "job2-title": "Home Cooks & Chefs", "job2-desc": "Middle Eastern basic gastronomy methods and professional kitchen environment hygiene.",
+    "job3-title": "Private Drivers", "job3-desc": "Navigation systems management, proper transit etiquette guidelines, basic engine tracking.",
+    "job4-title": "Nannies & Caregivers", "job4-desc": "Infant security basics, pediatric nutrition monitoring, and elder support techniques.",
+    "salary-title": "Transparent Salary Framework", "salary-subtitle": "Official contractual monthly baselines across core destinations.",
+    "th-sal-dest": "Destination Country", "th-sal-job": "Job Category", "th-sal-exp": "Experience Horizon", "th-sal-rem": "Monthly Remuneration Range",
+    "sal1-dest": "Saudi Arabia", "sal1-job": "Housemaid", "sal1-exp": "Fresh / First Time",
+    "sal2-dest": "Saudi Arabia", "sal2-job": "Housemaid", "sal2-exp": "2+ Years Gulf Exp.",
+    "sal3-dest": "Saudi Arabia", "sal3-job": "Male Driver", "sal3-exp": "Fresh / First Time",
+    "sal4-dest": "Kuwait", "sal4-job": "Housemaid", "sal4-exp": "Fresh / First Time",
+    "sal5-dest": "Kuwait", "sal5-job": "Housemaid", "sal5-exp": "2+ Years Gulf Exp.",
+    "sal6-dest": "Jordan", "sal6-job": "Domestic Worker (All)", "sal6-exp": "Minimum Legal Threshold",
+    "benefit1-title": "Food & Living Costs", "benefit1-desc": "Completely paid standard accommodation and 3 meals daily per regulation parameters.",
+    "benefit2-title": "Medical Coverage", "benefit2-desc": "Comprehensive health safety coverage paid entirely for the full 2-year deployment duration.",
+    "benefit3-title": "Flight Coverage", "benefit3-desc": "Complimentary departure air travel tickets and 2-year contract completion return flights.",
+    "benefit4-title": "Tracked Wage Channels", "benefit4-desc": "Musaned WPS (KSA) and Public Authority for Manpower (Kuwait) automated transfers.",
+    "protection-title": "Worker Protection & Ethical Guarantee", "protection-desc": "We operate a strict zero-abandonment policy. Dallol Star runs a dedicated 24/7 hotline mechanism ensuring workers can voice issues regarding salary distribution timeline gaps or healthcare concerns immediately. We strictly partner with accredited agencies in Saudi Arabia, Kuwait, and Jordan that uphold human rights.",
+    "form1-title": "International Agency Request Portal", "form1-subtitle": "Submit your official workforce criteria parameters or demand files directly to our processing desk.",
+    "label-office": "Office Name *", "label-territory": "Target Territory *", "opt-ksa": "Kingdom of Saudi Arabia", "opt-kuwait": "State of Kuwait", "opt-jordan": "Hashemite Kingdom of Jordan",
+    "label-email": "Official Email Contact *", "label-file": "Upload Demand Document / Visa Copies (PDF/Word) *", "label-desc": "Detailed Workforce Requirements Description", "btn-submit-corporate": "Dispatch Demand Package",
+    "seeker-tag": "ለሀገር ውስጥ ሥራ ፈላጊዎች", "seeker-title": "የስራ ዕድል ምዝገባና ማሟያ መስፈርቶች", "seeker-desc": "የሳውዲ፣ ኩዌት እና ዮርዳኖስ የቤት ውስጥ ሰራተኛ፣ ሹፌር እና ሞግዚት የስራ ቅጥር ለማመልከት ከታች የተቀመጡትን መመዘኛዎች ማሟላት ይጠበቅብዎታል።",
+    "criteria-title": "Eligibility Criteria / ማሟላት ያለብዎት ነገሮች:",
+    "crit1": "Valid original Ethiopian Passport (የፀና የኢትዮጵያ ፓስፖርት)", "crit2": "Clean health screening status & GAMCA clearance status.", "crit3": "Minimum basic education level background limits.", "crit4": "No prior criminal cases record profile within local jurisdictions.", "crit5": "Standard 2-year deployment timeline obligation agreement.",
+    "form2-title": "Candidate Quick Register / ፈጣን መመዝገቢያ ፎርም", "label-name": "Full Name / ሙሉ ስም *", "label-phone": "Phone Number / ስልክ ቁጥር *", "label-target": "Target Country / መሄድ የሚፈልጉበት ሀገር *",
+    "opt-sa-mix": "Saudi Arabia / ሳውዲ አረቢያ", "opt-kw-mix": "Kuwait / ኩዌት", "opt-jo-mix": "Jordan / ዮርዳኖስ", "label-passport": "Passport Copy or Photo / የፓስፖርት ፎቶ *", "btn-submit-seeker": "Submit Application / ይመዝገቡ",
+    "footer-col1": "Legal Corporate Entity", "footer-desc": "Licensed recruitment operator specialized in GCC deployments. Delivering swift, legal compliance handling parameters across international logistics networks.",
+    "footer-col2": "Physical Head Office", "addr-reg": "Region: Addis Ababa, Ethiopia", "addr-sub": "Sub-City: Addis Ketema, Woreda 06", "addr-keb": "Kebele 1249, House Number 1249", "addr-floor": "2nd Floor, Office Cabinets: 203, 204, 205", "addr-hours": "Mon - Sat: 8:00 AM - 6:00 PM",
+    "footer-col3": "Direct Contact Matrix", "footer-contact-desc": "Reach out via official support frameworks for quick response parameters:", "footer-copy": "All Rights Vetted and Reserved.", "footer-procl": "Proclamations 923/2016 & 1246/2021 Compliant Platform", "floating-wa": "Contact on WhatsApp"
+  },
+  am: {
+    "nav-about": "ስለ እኛ", "nav-process": "የአሰራር ሂደት", "nav-services": "አገልግሎቶች", "nav-salaries": "ደመወዝ", "nav-jobseekers": "ስራ ፈላጊዎች", "nav-contact": "እውቂያ",
+    "whatsapp-btn": "የቢዝነስ ዋትስአፕ መልዕክት", "whatsapp-line": "የደንበኞች ዋትስአፕ መስመር",
+    "hero-tag": "ህጋዊ እና ፍቃድ ያለው ተቋም", "hero-title": "ከፍተኛ ጥራት ያለው የኢትዮጵያውያን ቅጥር፣ የተረጋገጠ ብቃት።", "hero-desc": "በኢትዮጵያ የውጭ ሀገር የስራ ስምሪት አዋጅ ቁጥር 923/2008 እና 1246/2013 ሙሉ በሙሉ የተፈቀደለት። አስተማማኝ፣ የሰለጠነ እና ቁርጠኛ የሰው ሃይል ወደ ባሕረ ሰላጤው ክልል ማቅረብ።",
+    "hero-btn-corporate": "የሰው ኃይል ይጠይቁ / ከእኛ ጋር ይስሩ", "hero-btn-seeker": "ለመስራት ይመዝገቡ",
+    "cred-title": "የቁጥጥር ማስረጃዎች", "cred-details": "የሰራተኛና ማህበራዊ ጉዳይ ሚኒስቴር ፍቃድ ቁጥር: 923/2008 እና 1246/2013", "destinations-title": "ዋና የስራ መዳረሻ ሀገራት",
+    "country-sa": "ሳውዲ አረቢያ", "status-sa": "በሙሳነድ የተዘጋጀ", "country-kw": "ኩዌት", "status-kw": "በPAM የሚመራ", "country-jo": "ዮርዳኖስ", "status-jo": "የተረጋገጠ መስመር",
+    "qa-title": "የጥራት ማረጋገጫ መስፈርት", "qa-desc": "እያንዳንዱ ሰራተኛ ከመሰማራቱ በፊት ሰፊ የጀርባ ምርመራ፣ አጠቃላይ የGAMCA ጤና ምርመራ እና ሙሉ ተግባራዊ ስልጠና ይወስዳል።",
+    "about-title": "የኢትዮጵያ የሰው ኃይል ለማግኘት ለምን ከእኛ ጋር ይሰራሉ?", "about-subtitle": "ዳሎል ስታር በኢትዮጵያ ባሉ ምርጥ ተሰጥኦዎች እና በባህረ ሰላጤው ሀገራት ባሉ አሰሪዎች መካከል ያለውን ልዩነት ያጠባል።",
+    "prop1-title": "ተስማሚነት እና የስራ ስነ-ምግባር", "prop1-desc": "እጩዎቻችን አስደናቂ የባህል መቋቋም፣ ፈጣን የቤት ሁኔታ መላመድ እና ለስራቸው ጥልቅ ቁርጠኝነት ያሳያሉ።",
+    "prop2-title": "ወጪ ቆጣቢነት", "prop2-desc": "ለቤተሰቦች እና ለኩባንያዎች በሰው ኃይል ጥራት ላይ ምንም ሳይቀንስ ተመጣጣኝ የቤት ውስጥ እና የጉልበት መፍትሄዎችን ማቅረብ።",
+    "prop3-title": "የቋንቋ እና የባህል ዝግጅት", "prop3-desc": "ሁሉም እጩዎች መሰረታዊ የአረብኛ እና የእንግሊዘኛ ቋንቋ ትምህርቶችን ከመካከለኛው ምስራቅ የቤት አወቃቀር አቅጣጫ ጋር ይወስዳሉ።",
+    "flow-title": "የምልመላ እና የስራ ስምሪት ሂደት", "flow-subtitle": "ፍላጎቶችን እንዴት በጥንቃቄ እና በተሳለጠ መልኩ ወደ ህጋዊ ስምሪት እንደምንቀይር።",
+    "step1-title": "ማግኘት እና ማጣራት", "step1-desc": "በመላው ኢትዮጵያ የጀርባ ታሪክ እና የወንጀል ሪከርድ ማረጋገጫ ማካሄድ።",
+    "step2-title": "የሕክምና ማረጋገጫ", "step2-desc": "ለተላላፊ በሽታዎች የጂሲሲ (GCC) ደረጃዎችን የሚያሟላ ጥብቅ የጤና ምርመራ።",
+    "step3-title": "ከመነሻ በፊት ስልጠና", "step3-desc": "መሰረታዊ የአረብኛ ቋንቋ፣ የቤት ውስጥ እቃዎች አጠቃቀም እና የባህል ባህሪያት።",
+    "step4-title": "ቪዛ እና ምስክር ወረቀት", "step4-desc": "የአሻራ ሂደት እና ኦፊሴላዊ የኤምባሲ ውል ማህተም ማረጋገጫ።",
+    "step5-title": "የስምሪት ድጋፍ", "step5-desc": "የበረራ አስተዳደር እና ለ 2 ዓመታት የስራ ዘመን ክፍት የክትትል መስመሮች።",
+    "timeline-title": "መደበኛ የአሰራር ሂደት የጊዜ ሰሌዳ",
+    "time1-day": "ቀን 1 - 2", "time1-title": "የፍላጎት ማረጋገጫ", "time1-desc": "እንደ ሙሳነድ ባሉ ኦፊሴላዊ መንገዶች መስፈርቶችን መገምገም።",
+    "time2-day": "ቀን 3 - 7", "time2-title": "ማጣራት እና ማዛመድ", "time2-desc": "ንቁ እጩዎችን በዕድሜ፣ በስልጠና ዳራ እና በክህሎት ማጣራት።",
+    "time3-day": "ቀን 8 - 20", "time3-title": "የህክምና ሂደት", "time3-desc": "የGAMCA ምርመራ ማረጋገጫዎች፣ የፖሊስ ማረጋገጫ፣ የፓስፖርት ህጋዊነት።",
+    "time4-day": "ቀን 25 - 35", "time4-title": "የቪዛ ማህተም እና በረራ", "time4-desc": "የመጨረሻ የኤምባሲ ሂደቶች፣ የጉዞ ቦታ ማስያዝ ሎጂስቲክስ፣ የመጨረሻ አቅጣጫ።",
+    "pillars-title": "ከመሰማራትዎ በፊት ዋና ዋና የስልጠና ምሰሶዎች", "pillars-subtitle": "ከበረራ በፊት በተግባራዊ የክህሎት ፍተሻዎች የአሰራር ስህተቶችን መቀነስ።",
+    "pillar1-title": "ዘመናዊ የቤት አስተዳደር", "pillar1-desc": "በዘመናዊ ማጠቢያዎች፣ የላቁ ቫክዩሞች፣ ልዩ የእንፋሎት ካውያዎች እና ጥልቅ የወጥ ቤት እቃዎች አጠቃቀም ላይ ተግባራዊ ስልጠና።",
+    "pillar2-title": "የባህል መጣጣም", "pillar2-desc": "ስለ መካከለኛው ምስራቅ ወጎች፣ የቤት ውስጥ ግላዊነት፣ የአለባበስ ስነ-ስርዓት እና የቤተሰብ ክብር እሴቶች ማስተማር።",
+    "pillar3-title": "የችግር መፍቻ መስመር", "pillar3-desc": "እጩዎች የስራ ጉዳዮችን በግልፅ እንዴት እንደሚያሳውቁ፣ የጤና ስጋቶችን እና ደህንነቱ የተጠበቀ አቤቱታ አቀራረብን ማስተማር።",
+    "matrix-title": "ልዩ የስራ ዘርፎች እና ምደባዎች", "matrix-subtitle": "በእኛ በኩል በመደበኛነት የሚሰማሩ የስራ ሂደቶች ግልጽ ምደባ።",
+    "th-job": "የስራ መደብ", "th-dest": "የመዳረሻ ሀገራት", "th-train": "የሚሰጠው መደበኛ ስልጠና",
+    "job1-title": "የቤት ውስጥ ሰራተኞች / ረዳቶች", "job1-desc": "የቤት አስተዳደር፣ የግዴታ ቋንቋ መሰረታዊ ነገሮች እና የወጥ ቤት እቃዎች ቁጥጥር።",
+    "job2-title": "የቤት ውስጥ ምግብ አሰናጅዎች / ሼፎች", "job2-desc": "የመካከለኛው ምስራቅ መሰረታዊ የምግብ አዘገጃጀት ዘዴዎች እና የባለሙያ ወጥ ቤት ንፅህና አጠባበቅ።",
+    "job3-title": "የግል አሽከርካሪዎች", "job3-desc": "የአሰሳ (Navigation) ስርዓቶች አጠቃቀም፣ ተገቢ የትራንዚት ስነ-ምግባር እና መሰረታዊ የሞተር ክትትል።",
+    "job4-title": "ሞግዚቶች እና ተንከባካቢዎች", "job4-desc": "የሕፃናት ደህንነት መሰረታዊ ነገሮች፣ የህፃናት አመጋገብ ክትትል እና የአረጋውያን ድጋፍ ዘዴዎች።",
+    "salary-title": "ግልጽ የደመወዝ መዋቅር", "salary-subtitle": "በዋና ዋና መዳረሻዎች ላይ ኦፊሴላዊ የውል ወርሃዊ መነሻዎች።",
+    "th-sal-dest": "መዳረሻ ሀገር", "th-sal-job": "የስራ መደብ", "th-sal-exp": "የስራ ልምድ", "th-sal-rem": "የወርሃዊ ክፍያ መጠን",
+    "sal1-dest": "ሳውዲ አረቢያ", "sal1-job": "የቤት ውስጥ ሰራተኛ", "sal1-exp": "አዲስ / ለመጀመሪያ ጊዜ",
+    "sal2-dest": "ሳውዲ አረቢያ", "sal2-job": "የቤት ውስጥ ሰራተኛ", "sal2-exp": "2+ ዓመት የባህረ ሰላጤ ልምድ",
+    "sal3-dest": "ሳውዲ አረቢያ", "sal3-job": "ወንድ አሽከርካሪ", "sal3-exp": "አዲስ / ለመጀመሪያ ጊዜ",
+    "sal4-dest": "ኩዌት", "sal4-job": "የቤት ውስጥ ሰራተኛ", "sal4-exp": "አዲስ / ለመጀመሪያ ጊዜ",
+    "sal5-dest": "ኩዌት", "sal5-job": "የቤት ውስጥ ሰራተኛ", "sal5-exp": "2+ ዓመት የባህረ ሰላጤ ልምድ",
+    "sal6-dest": "ዮርዳኖስ", "sal6-job": "የቤት ውስጥ ሰራተኛ (ሁሉም)", "sal6-exp": "ዝቅተኛው ህጋዊ ገደብ",
+    "benefit1-title": "ምግብ እና ማደሪያ ወጪዎች", "benefit1-desc": "በሕጉ መሠረት ሙሉ በሙሉ የተከፈለ መደበኛ ማደሪያ እና በቀን 3 ጊዜ ምግብ።",
+    "benefit2-title": "የህክምና ሽፋን", "benefit2-desc": "ለሙሉ 2-አመት የስራ ስምሪት ጊዜ ሙሉ በሙሉ የተከፈለ አጠቃላይ የጤና ዋስትና ሽፋን።",
+    "benefit3-title": "የበረራ ትኬት ሽፋን", "benefit3-desc": "ነፃ የመነሻ የአየር ጉዞ ትኬቶች እና የ 2 ዓመት ውል ሲጠናቀቅ የመመለሻ በረራዎች።",
+    "benefit4-title": "ህጋዊ የደመወዝ መስመሮች", "benefit4-desc": "የሙሳነድ WPS (ሳውዲ) እና የሰው ኃይል የሕዝብ ባለሥልጣን (ኩዌት) አውቶማቲክ ዝውውሮች።",
+    "protection-title": "የሰራተኞች ጥበቃ እና የስነ-ምግባር ዋስትና", "protection-desc": "እኛ ጥብቅ የዜሮ-መተው ፖሊሲ እንከተላለን። ዳሎል ስታር ሰራተኞች የደመወዝ ክፍያ መዘግየት ወይም የጤና አጠባበቅ ስጋቶችን ወዲያውኑ ማሳወቅ የሚችሉበት የ24/7 የጥሪ ማዕከል አለው። ሰብአዊ መብቶችን ከሚያከብሩ በሳውዲ አረቢያ፣ ኩዌት እና ዮርዳኖስ ከሚገኙ እውቅና ካላቸው ኤጀንሲዎች ጋር ብቻ እንሰራለን።",
+    "form1-title": "የአለም አቀፍ ኤጀንሲ ጥያቄ ፖርታል", "form1-subtitle": "የስራ ሃይል ፍላጎትዎን ወይም የቪዛ ሰነዶችዎን በቀጥታ ወደ እኛ የስራ ክፍል ያስገቡ።",
+    "label-office": "የቢሮ ስም *", "label-territory": "የመዳረሻ ክልል *", "opt-ksa": "የሳውዲ አረቢያ ኪንግደም", "opt-kuwait": "የኩዌት ግዛት", "opt-jordan": "የዮርዳኖስ ሃሺማይት ኪንግደም",
+    "label-email": "ኦፊሴላዊ የኢሜል አድራሻ *", "label-file": "የፍላጎት ሰነድ / የቪዛ ቅጂዎችን ይስቀሉ (PDF/Word) *", "label-desc": "ዝርዝር የስራ ኃይል መስፈርቶች መግለጫ", "btn-submit-corporate": "የጥያቄ ሰነዱን ላክ",
+    "seeker-tag": "ለሀገር ውስጥ ሥራ ፈላጊዎች", "seeker-title": "የስራ ዕድል ምዝገባና ማሟያ መስፈርቶች", "seeker-desc": "የሳውዲ፣ ኩዌት እና ዮርዳኖስ የቤት ውስጥ ሰራተኛ፣ ሹፌር እና ሞግዚት የስራ ቅጥር ለማመልከት ከታች የተቀመጡትን መመዘኛዎች ማሟላት ይጠበቅብዎታል።",
+    "criteria-title": "Eligibility Criteria / ማሟላት ያለብዎት ነገሮች:",
+    "crit1": "Valid original Ethiopian Passport (የፀና የኢትዮጵያ ፓስፖርት)", "crit2": "ደህንነቱ የተጠበቀ የጤና ምርመራ እና የGAMCA ማረጋገጫ ደረጃ።", "crit3": "ዝቅተኛው መሰረታዊ የትምህርት ደረጃ ማረጋገጫ።", "crit4": "በአካባቢው ህጋዊ ስልጣን ውስጥ ምንም አይነት የወንጀል ክስ የሌለበት።", "crit5": "የመደበኛ 2-ዓመት የስራ ስምሪት የውል ስምምነት ግዴታ።",
+    "form2-title": "Candidate Quick Register / ፈጣን መመዝገቢያ ፎርም", "label-name": "Full Name / ሙሉ ስም *", "label-phone": "Phone Number / ስልክ ቁጥር *", "label-target": "Target Country / መሄድ የሚፈልጉበት ሀገር *",
+    "opt-sa-mix": "Saudi Arabia / ሳውዲ አረቢያ", "opt-kw-mix": "Kuwait / ኩዌት", "opt-jo-mix": "Jordan / ዮርዳኖስ", "label-passport": "Passport Copy or Photo / የፓስፖርት ፎቶ *", "btn-submit-seeker": "Submit Application / ይመዝገቡ",
+    "footer-col1": "ህጋዊ የድርጅት አካል", "footer-desc": "በባህረ ሰላጤው ሀገራት ስምሪት ላይ የተሰማራ ፈቃድ ያለው የምልመላ ኦፕሬተር። በአለም አቀፍ የሎጂስቲክስ አውታሮች ላይ ፈጣን፣ ህጋዊ ተገዢነትን ማቅረብ።",
+    "footer-col2": "የቀጥታ ዋና ቢሮ", "addr-reg": "ክልል: አዲስ አበባ, ኢትዮጵያ", "addr-sub": "ክፍለ ከተማ: አዲስ ከተማ, ወረዳ 06", "addr-keb": "ቀበሌ 1249, የቤት ቁጥር 1249", "addr-floor": "2ኛ ፎቅ, የቢሮ ቁጥሮች: 203, 204, 205", "addr-hours": "ሰኞ - ቅዳሜ: ከጠዋቱ 2:00 - ከሰዓት 12:00",
+    "footer-col3": "የቀጥታ ግንኙነት ማውጫ", "footer-contact-desc": "ለፈጣን ምላሽ በኦፊሴላዊ የድጋፍ ማዕቀፎች በኩል ያግኙን:", "footer-copy": "መብቱ በህግ የተጠበቀ ነው።", "footer-procl": "አዋጅ 923/2016 እና 1246/2021 ተገዢ መድረክ", "floating-wa": "በዋትስአፕ ያግኙን"
+  },
+  ar: {
+    "nav-about": "من نحن", "nav-process": "عمليتنا", "nav-services": "الخدمات", "nav-salaries": "الرواتب", "nav-jobseekers": "الباحثين عن عمل", "nav-contact": "اتصل بنا",
+    "whatsapp-btn": "محادثة واتساب للشركات", "whatsapp-line": "خط واتساب للعملاء",
+    "hero-tag": "كيان مرخص ومتوافق قانونياً", "hero-title": "توظيف إثيوبي متميز، تميز معتمد.", "hero-desc": "مصرح لنا بالكامل بموجب قوانين التوظيف الخارجي في إثيوبيا رقم 923/2016 و1246/2021. تقديم كفاءات بشرية موثوقة ومدربة ومدفوعة بالشغف إلى منطقة الخليج العربي.",
+    "hero-btn-corporate": "طلب عمالة / شريك معنا", "hero-btn-seeker": "التسجيل للعمل / ይመዝገቡ",
+    "cred-title": "الاعتمادات التنظيمية", "cred-details": "ترخيص وزارة العمل رقم: 923/2008 & 1246/2013", "destinations-title": "وجهات النقل الأساسية",
+    "country-sa": "المملكة العربية السعودية", "status-sa": "جاهز على مساند", "country-kw": "الكويت", "status-kw": "مُدار عبر الهيئة العامة للقوى العاملة", "country-jo": "الأردن", "status-jo": "مسار معتمد",
+    "qa-title": "معيار ضمان الجودة", "qa-desc": "يخضع كل عامل لفحص شامل للخلفية الجنائية، والشهادات الصحية المعتمدة من جامكا (GAMCA)، وتدريب عملي كامل قبل المغادرة.",
+    "about-title": "لماذا تختارنا لتوفير العمالة الإثيوبية؟", "about-subtitle": "دالول ستار تجسر الفجوة بين الكفاءات العالية من إثيوبيا وأصحاب العمل في جميع أنحاء الخليج.",
+    "prop1-title": "التكيف وأخلاقيات العمل", "prop1-desc": "يظهر مرشحونا قدرة مذهلة على التكيف الثقافي، والاندماج السريع في المنازل، والالتزام العميق بمهام عملهم.",
+    "prop2-title": "فعالية التكلفة", "prop2-desc": "تقديم حلول عمالة منزلية مرنة واقتصادية للعائلات والشركات دون أي تراجع في جودة قوى العمل.",
+    "prop3-title": "التجهيز اللغوي والثقافي", "prop3-desc": "يتلقى جميع المرشحين دورات أساسية في اللغتين العربية والإنجليزية إلى جانب التوجيه حول طبيعة الأسرة في الشرق الأوسط.",
+    "flow-title": "مراحل التوظيف والإرسال", "flow-subtitle": "كيف ننقل الطلبات بأمان وبشكل متوافق تماماً إلى واقع ملموس بسلاسة.",
+    "step1-title": "الاستقطاب والفرز", "step1-desc": "التحقق من الخلفية والسجل الجنائي في جميع أنحاء إثيوبيا.",
+    "step2-title": "الفحص الطبي الرسمي", "step2-desc": "فحص صحي صارم يطابق معايير دول مجلس التعاون الخليجي للأمراض المعدية.",
+    "step3-title": "التدريب قبل المغادرة", "step3-desc": "أساسيات اللغة العربية، استخدام الأجهزة المنزلية، وتوقعات التعامل الثقافي.",
+    "step4-title": "التأشيرات والتصديق", "step4-desc": "معالجة البصمات الحيوية وختم العقود الرسمي من السفارات.",
+    "step5-title": "دعم ما بعد الوصول", "step5-desc": "إدارة الرحلات الجوية وخطوط المتابعة المفتوحة طوال فترة العقد البالغة سنتين.",
+    "timeline-title": "الجدول الزمني القياسي للعملية",
+    "time1-day": "اليوم 1 - 2", "time1-title": "التحقق من الطلب", "time1-desc": "مراجعة المعايير والطلبات عبر القنوات الرسمية المؤتمتة مثل مساند.",
+    "time2-day": "اليوم 3 - 7", "time2-title": "الفرز والمطابقة", "time2-desc": "تصفية المرشحين النشطين حسب العمر، وخلفية التدريب، والمهارات.",
+    "time3-day": "اليوم 8 - 20", "time3-title": "المعالجة الطبية", "time3-desc": "الفحوصات الطبية المعتمدة من GAMCA، التدقيق الأمني، وصلاحية جواز السفر.",
+    "time4-day": "اليوم 25 - 35", "time4-title": "تأشيرة السفارة والرحلة", "time4-desc": "مراحل التخليص النهائي من السفارة، حجز التذاكر والخدمات اللوجستية، والتوجيه الختامي.",
+    "pillars-title": "ركائز التدريب قبل المغادرة", "pillars-subtitle": "تقليل الأخطاء التشغيلية عبر اختبارات المهارات العملية قبل الرحلة.",
+    "pillar1-title": "إدارة المنزل الحديث", "pillar1-desc": "وحدات عمل علمية على الغسالات الذكية، المكانس المتطورة، مكاوي البخار المتخصصة، وإجراءات المطبخ العميقة.",
+    "pillar2-title": "التوافق الثقافي", "pillar2-desc": "تثقيف العمالة حول التقاليد الشرق أوسطية، خصوصية المنازل، الآداب العامة، وتوقعات احترام الأسرة.",
+    "pillar3-title": "قناة حل النزاعات", "pillar3-desc": "تعليم المرشحين كيفية الإبلاغ عن المشكلات التشغيلية بوضوح، والمخاوف الصحية الشخصية، وقواعد التصعيد الآمن.",
+    "matrix-title": "نطاق العمل المتخصص والوظائف المستهدفة", "matrix-subtitle": "تصنيف واضح لتدفقات العمالة النشطة التي يتم إرسالها بانتظام عبر مساراتنا.",
+    "th-job": "فئة الوظيفة", "th-dest": "الوجهات المستهدفة", "th-train": "التدريب القياسي المقدم",
+    "job1-title": "عاملات منازل / مساعدات منزليات", "job1-desc": "إدارة المنزل، أساسيات اللغة الإلزامية، والتحكم في أدوات المطبخ.",
+    "job2-title": "طباخو منازل وطهاة", "job2-desc": "أساليب الطهي الأساسية في الشرق الأوسط ونظافة بيئة المطبخ الاحترافية.",
+    "job3-title": "سائقون خصوصيون", "job3-desc": "إدارة أنظمة الملاحة، إرشادات آداب العبور الصحيحة، والمتابعة الأساسية للمحرك.",
+    "job4-title": "مربيات أطفال ومقدمو رعاية", "job4-desc": "أساسيات سلامة الرضع، مراقبة التغذية للأطفال، وتقنيات دعم كبار السن.",
+    "salary-title": "إطار رواتب شفاف", "salary-subtitle": "الرواتب التعاقدية الشهرية الأساسية الرسمية عبر الوجهات الرئيسية.",
+    "th-sal-dest": "بلد الوجهة", "th-sal-job": "فئة الوظيفة", "th-sal-exp": "الأفق المهني والخلفية", "th-sal-rem": "نطاق الراتب الشهري",
+    "sal1-dest": "المملكة العربية السعودية", "sal1-job": "عاملة منزلية", "sal1-exp": "جديدة / لأول مرة",
+    "sal2-dest": "المملكة العربية السعودية", "sal2-job": "عاملة منزلية", "sal2-exp": "خبرة سنتين أو أكثر في الخليج",
+    "sal3-dest": "المملكة العربية السعودية", "sal3-job": "سائق ذكر", "sal3-exp": "جديد / لأول مرة",
+    "sal4-dest": "الكويت", "sal4-job": "عاملة منزلية", "sal4-exp": "جديدة / لأول مرة",
+    "sal5-dest": "الكويت", "sal5-job": "عاملة منزلية", "sal5-exp": "خبرة سنتين أو أكثر في الخليج",
+    "sal6-dest": "الأردن", "sal6-job": "عامل منزلي (الجميع)", "sal6-exp": "الحد الأدنى القانوني",
+    "benefit1-title": "تكاليف الطعام والسكن", "benefit1-desc": "سكن قياسي مدفوع بالكامل و3 وجبات يومياً وفقاً للمحددات التنظيمية.",
+    "benefit2-title": "التغطية الطبية", "benefit2-desc": "تغطية تأمينية صحية شاملة مدفوعة بالكامل طوال فترة العقد البالغة سنتين.",
+    "benefit3-title": "تذاكر الطيران", "benefit3-desc": "تذاكر طيران مجانية عند المغادرة وتذاكر عودة عند إتمام العقد الممتد لسنتين.",
+    "benefit4-title": "قنوات الأجور الموثقة", "benefit4-desc": "تحويلات مؤتمتة عبر نظام حماية الأجور مساند (السعودية) والهيئة العامة للقوى العاملة (الكويت).",
+    "protection-title": "حماية العمال والضمان الأخلاقي", "protection-desc": "نحن نتبع سياسة صارمة تمنع التخلي عن العمالة. تدير دالول ستار خطاً ساخناً مخصصاً على مدار الساعة طوال الأسبوع لضمان قدرة العمال على التعبير عن المشكلات المتعلقة بالرواتب أو الرعاية الصحية فوراً. نحن نتعامل حصرياً مع الوكالات المعتمدة في السعودية والكويت والأردن التي تحترم حقوق الإنسان.",
+    "form1-title": "بوابة طلبات الوكالات الدولية", "form1-subtitle": "أرسل معايير القوى العاملة الرسمية أو نسخ التأشيرات مباشرة إلى مكتب المعالجة لدينا.",
+    "label-office": "اسم المكتب *", "label-territory": "المنطقة المستهدفة *", "opt-ksa": "المملكة العربية السعودية", "opt-kuwait": "دولة الكويت", "opt-jordan": "المملكة الأردنية الهاشمية",
+    "label-email": "البريد الإلكتروني الرسمي *", "label-file": "تحميل مستند الطلب / نسخ التأشيرة (PDF/Word) *", "label-desc": "وصف تفصيلي لمتطلبات القوى العاملة", "btn-submit-corporate": "إرسال حزمة الطلب",
+    "seeker-tag": "ለሀገር ውስጥ ሥራ ፈላጊዎች", "seeker-title": "የስራ ዕድል ምዝገባና ማሟያ መስፈርቶች", "seeker-desc": "የሳውዲ፣ ኩዌት እና ዮርዳኖስ የቤት ውስጥ ሰራተኛ፣ ሹፌር እና ሞግዚት የስራ ቅጥር ለማመልከት ከታች የተቀመጡትን መመዘኛዎች ማሟላት ይጠበቅብዎታል።",
+    "criteria-title": "Eligibility Criteria / ማሟላት ያለብዎት ነገሮች:",
+    "crit1": "Valid original Ethiopian Passport (የፀና የኢትዮጵያ ፓስፖርት)", "crit2": "حالة فحص صحي سليمة وخلفية طبية معتمدة من جامكا.", "crit3": "الحد الأدنى لمستويات التعليم الأساسي المطلوبة.", "crit4": "سجل جنائي خالٍ من السوابق في النطاق المحلي.", "crit5": "الموافقة والالتزام بفترة التعاقد القياسية البالغة سنتين.",
+    "form2-title": "Candidate Quick Register / ፈጣن መመዝገቢያ ፎርም", "label-name": "Full Name / ሙሉ ስም *", "label-phone": "Phone Number / ስልክ ቁጥር *", "label-target": "Target Country / መሄድ የሚፈልጉበት ሀገር *",
+    "opt-sa-mix": "Saudi Arabia / ሳውዲ አረቢያ", "opt-kw-mix": "Kuwait / ኩዌት", "opt-jo-mix": "Jordan / ዮርዳኖስ", "label-passport": "Passport Copy or Photo / የፓስፖርት ፎቶ *", "btn-submit-seeker": "Submit Application / ይመዝገቡ",
+    "footer-col1": "الكيان القانوني للشركة", "footer-desc": "مشغل توظيف مرخص متخصص في عمليات النقل لدول مجلس التعاون الخليجي. تقديم خدمات امتثال قانوني سريعة عبر شبكات اللوجستيات الدولية.",
+    "footer-col2": "المكتب الرئيسي الفعلي", "addr-reg": "المنطقة: أديس أبابا، إثيوبيا", "addr-sub": "المدينة الفرعية: أديس كيتيما، ووريدا 06", "addr-keb": "كيبيلي 1249، منزل رقم 1249", "addr-floor": "الطابق الثاني، المكاتب: 203، 204، 205", "addr-hours": "الاثنين - السبت: 8:00 صباحاً - 6:00 مساءً",
+    "footer-col3": "مصفوفة الاتصال المباشر", "footer-contact-desc": "تواصل معنا عبر أطر الدعم الرسمية للحصول على استجابة سريعة لمتطلباتكم:", "footer-copy": "جميع الحقوق محفوظة وموثقة.", "footer-procl": "منصة متوافقة مع المرسومين 923/2016 و 1246/2021", "floating-wa": "تواصل معنا عبر واتساب"
+  }
+};
+
+// Toggle Function logic to swap strings inside data-i18n tags safely without breaking HTML structure
+function changeLanguage(lang) {
+  const elements = document.querySelectorAll('[data-i18n]');
+  elements.forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    if (dictionary[lang] && dictionary[lang][key]) {
+      element.innerText = dictionary[lang][key];
+    }
+  });
+
+  // Adjust text direction for Arabic (RTL) vs English/Amharic (LTR)
+  if (lang === 'ar') {
+    document.documentElement.setAttribute('dir', 'rtl');
+    document.documentElement.setAttribute('lang', 'ar');
+  } else {
+    document.documentElement.setAttribute('dir', 'ltr');
+    document.documentElement.setAttribute('lang', lang);
+  }
+  
+  // Synchronize both desktop and mobile selection UI states
+  document.getElementById('lang-select-desktop').value = lang;
+  document.getElementById('lang-select-mobile').value = lang === 'en' ? 'en' : (lang === 'am' ? 'am' : 'ar');
+}
+
+// Attach event listeners to selector elements
+document.getElementById('lang-select-desktop').addEventListener('change', (e) => changeLanguage(e.target.value));
+document.getElementById('lang-select-mobile').addEventListener('change', (e) => changeLanguage(e.target.value));
+
+// Responsive Menu Framework
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+
+menuToggle.addEventListener('click', () => {
+mobileMenu.classList.toggle('open');
+});
+
+// Close mobile menu smoothly on clicking an anchor link
+const navLinks = mobileMenu.querySelectorAll('a');
+navLinks.forEach(link => {
+link.addEventListener('click', () => {
+mobileMenu.classList.remove('open');
+});
+});
+</script>
 </body>
 </html>
