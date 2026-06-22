@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -79,7 +78,7 @@ max-height: 600px;
 </select>
 </div>
 <a href="https://wa.me/251911661718" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm flex items-center font-medium transition">
-<i class="fab fa-whatsapp mr-2 text-base"></i> 
+<i class="fab fa-whatsapp mr-2 text-base"></i>
 <span data-i18n="whatsapp-btn">B2B WhatsApp Chat</span>
 </a>
 </div>
@@ -124,7 +123,7 @@ Fully authorized under Ethiopia's Overseas Employment Proclamations No. 923/2016
 <a href="#corporate-form" data-i18n="hero-btn-corporate" class="bg-brand-gold hover:bg-yellow-600 text-brand-navy font-bold px-6 py-3.5 rounded-xl shadow-lg transition text-center">
 Request Manpower / Partner With Us
 </a>
-<a href="#jobseekers" data-i18n="hero-btn-seeker" class="bg-transparent border-2 border-white hover:bg-white hover:text-brand-navy font-bold px-6 py-3.5 rounded-xl transition text-center">
+<a href="mailto:dallolstarma@gmail.com?subject=Job Seeker Registration" data-i18n="hero-btn-seeker" class="bg-transparent border-2 border-white hover:bg-white hover:text-brand-navy font-bold px-6 py-3.5 rounded-xl transition text-center">
 Register to Work / ይመዝገቡ
 </a>
 </div>
@@ -258,8 +257,7 @@ Every single worker undergoes extensive background screening, comprehensive GAMC
 </section>
 
 <section class="py-16 bg-brand-light">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="text-center max-w-2xl mx-auto mb-10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 text-center max-w-2xl mx-auto mb-10">
 <h2 data-i18n="pillars-title" class="text-2xl md:text-3xl font-bold text-brand-navy">Pre-Deployment Training Pillars</h2>
 <p data-i18n="pillars-subtitle" class="text-slate-600 text-sm mt-2">Mitigating operational errors via practical skill checks before the flight.</p>
 </div>
@@ -470,18 +468,18 @@ Dispatch Demand Package
 
 <div class="bg-brand-blue p-6 rounded-2xl border border-slate-700">
 <h4 data-i18n="form2-title" class="text-base font-bold text-center text-brand-gold mb-4">Candidate Quick Register / ፈጣን መመዝገቢያ ፎርም</h4>
-<form class="space-y-3 text-slate-900">
+<form class="space-y-3 text-slate-900" action="mailto:dallolstarma@gmail.com" method="post" enctype="text/plain">
 <div>
 <label data-i18n="label-name" class="block text-[11px] text-slate-300 font-bold uppercase mb-1">Full Name / ሙሉ ስም *</label>
-<input type="text" required class="w-full text-xs p-2 rounded border border-slate-600 focus:outline-none">
+<input type="text" name="Full Name" required class="w-full text-xs p-2 rounded border border-slate-600 focus:outline-none">
 </div>
 <div>
 <label data-i18n="label-phone" class="block text-[11px] text-slate-300 font-bold uppercase mb-1">Phone Number / ስልክ ቁጥር *</label>
-<input type="tel" required class="w-full text-xs p-2 rounded border border-slate-600 focus:outline-none" placeholder="09...">
+<input type="tel" name="Phone Number" required class="w-full text-xs p-2 rounded border border-slate-600 focus:outline-none" placeholder="09...">
 </div>
 <div>
 <label data-i18n="label-target" class="block text-[11px] text-slate-300 font-bold uppercase mb-1">Target Country / መሄድ የሚፈልጉበት ሀገር *</label>
-<select class="w-full text-xs p-2 rounded border border-slate-600 focus:outline-none">
+<select name="Target Country" class="w-full text-xs p-2 rounded border border-slate-600 focus:outline-none">
 <option data-i18n="opt-sa-mix">Saudi Arabia / ሳውዲ አረቢያ</option>
 <option data-i18n="opt-kw-mix">Kuwait / ኩዌት</option>
 <option data-i18n="opt-jo-mix">Jordan / ዮርዳኖስ</option>
@@ -552,204 +550,204 @@ Licensed recruitment operator specialized in GCC deployments. Delivering swift, 
 <script>
 // Dictionary containing all translation pairs mapped seamlessly
 const dictionary = {
-  en: {
-    "nav-about": "About Us", "nav-process": "Our Process", "nav-services": "Services", "nav-salaries": "Salaries", "nav-jobseekers": "Job Seekers", "nav-contact": "Contact",
-    "whatsapp-btn": "B2B WhatsApp Chat", "whatsapp-line": "WhatsApp Client Line",
-    "hero-tag": "Licensed & Compliant Entity", "hero-title": "Premium Ethiopian Recruitment, Certified Excellence.", "hero-desc": "Fully authorized under Ethiopia's Overseas Employment Proclamations No. 923/2016 & 1246/2021. Delivering reliable, trained, and highly dedicated human resource pipelines to the Gulf region.",
-    "hero-btn-corporate": "Request Manpower / Partner With Us", "hero-btn-seeker": "Register to Work / ይመዝገቡ",
-    "cred-title": "Regulatory Credentials", "cred-details": "Ministry of Labor Lic: No. 923/2008 & 1246/2013", "destinations-title": "Primary Deployment Destinations",
-    "country-sa": "Saudi Arabia", "status-sa": "Musaned Ready", "country-kw": "Kuwait", "status-kw": "PAM Managed", "country-jo": "Jordan", "status-jo": "Vetted Lane",
-    "qa-title": "Quality Assurance Standard", "qa-desc": "Every single worker undergoes extensive background screening, comprehensive GAMCA health clearances, and full practical training before deployment.",
-    "about-title": "Why Partner With Us for Ethiopian Manpower?", "about-subtitle": "Dallol Star bridges the gap between top talent from Ethiopia and employers across the Gulf, mitigating deployment friction.",
-    "prop1-title": "Adaptability & Work Ethic", "prop1-desc": "Our candidates show incredible cultural resilience, fast home adaptation, and deep dedication to their work scopes.",
-    "prop2-title": "Cost-Effectiveness", "prop2-desc": "Positioning dynamic, budget-friendly domestic and labor solutions for families and companies without a single drop in workforce quality.",
-    "prop3-title": "Language & Culture Prep", "prop3-desc": "All candidates receive functional basic Arabic and English language courses alongside Middle Eastern household structure orientation.",
-    "flow-title": "The Recruitment & Deployment Pipeline", "flow-subtitle": "How we safely move demands into fully compliant deployments seamlessly.",
-    "step1-title": "Sourcing & Screening", "step1-desc": "Background and criminal record verification across Ethiopia.",
-    "step2-title": "Medical Clearance", "step2-desc": "Strict health check matching GCC standards for infectious diseases.",
-    "step3-title": "Pre-Departure Training", "step3-desc": "Arabic language basics, appliance usage, and cultural expectations.",
-    "step4-title": "Visa & Attestation", "step4-desc": "Biometrics processing and official embassy contract stamping.",
-    "step5-title": "Deployment Support", "step5-desc": "Flight management and open tracking lines for the 2-year tenure.",
-    "timeline-title": "Standard Standardized Process Timeline",
-    "time1-day": "Day 1 - 2", "time1-title": "Demand Verification", "time1-desc": "Review criteria through automated official channels like Musaned.",
-    "time2-day": "Day 3 - 7", "time2-title": "Screening & Match", "time2-desc": "Filtering active candidates by age, training background, and profile maps.",
-    "time3-day": "Day 8 - 20", "time3-title": "Medical Processing", "time3-desc": "GAMCA diagnostic clearances, local police vetting, passport validation.",
-    "time4-day": "Day 25 - 35", "time4-title": "Visa Stamp & Flight", "time4-desc": "Final embassy clearance loops, travel booking logistics, orientation wrap.",
-    "pillars-title": "Pre-Deployment Training Pillars", "pillars-subtitle": "Mitigating operational errors via practical skill checks before the flight.",
-    "pillar1-title": "Modern Home Management", "pillar1-desc": "Practical modules on smart washers, advanced vacuums, specialized steam ironers, and deep kitchen appliance procedures.",
-    "pillar2-title": "Cultural Alignment", "pillar2-desc": "Educating deployment pipelines on Middle Eastern traditions, domestic privacy layouts, clothing decorums, and family respect expectations.",
-    "pillar3-title": "Crisis Resolution Channel", "pillar3-desc": "Teaching candidates how to communicate operational issues clearly, flag personal health concerns, and handle safe escalation rules.",
-    "matrix-title": "Specialized Work Scope & Target Placements", "matrix-subtitle": "Clear categorization of active workflows deployed regularly through our lanes.",
-    "th-job": "Job Category", "th-dest": "Target Destinations", "th-train": "Standard Training Provided",
-    "job1-title": "Housemaids / Domestic Helpers", "job1-desc": "Household administration, mandatory language fundamentals, and kitchen tools control.",
-    "job2-title": "Home Cooks & Chefs", "job2-desc": "Middle Eastern basic gastronomy methods and professional kitchen environment hygiene.",
-    "job3-title": "Private Drivers", "job3-desc": "Navigation systems management, proper transit etiquette guidelines, basic engine tracking.",
-    "job4-title": "Nannies & Caregivers", "job4-desc": "Infant security basics, pediatric nutrition monitoring, and elder support techniques.",
-    "salary-title": "Transparent Salary Framework", "salary-subtitle": "Official contractual monthly baselines across core destinations.",
-    "th-sal-dest": "Destination Country", "th-sal-job": "Job Category", "th-sal-exp": "Experience Horizon", "th-sal-rem": "Monthly Remuneration Range",
-    "sal1-dest": "Saudi Arabia", "sal1-job": "Housemaid", "sal1-exp": "Fresh / First Time",
-    "sal2-dest": "Saudi Arabia", "sal2-job": "Housemaid", "sal2-exp": "2+ Years Gulf Exp.",
-    "sal3-dest": "Saudi Arabia", "sal3-job": "Male Driver", "sal3-exp": "Fresh / First Time",
-    "sal4-dest": "Kuwait", "sal4-job": "Housemaid", "sal4-exp": "Fresh / First Time",
-    "sal5-dest": "Kuwait", "sal5-job": "Housemaid", "sal5-exp": "2+ Years Gulf Exp.",
-    "sal6-dest": "Jordan", "sal6-job": "Domestic Worker (All)", "sal6-exp": "Minimum Legal Threshold",
-    "benefit1-title": "Food & Living Costs", "benefit1-desc": "Completely paid standard accommodation and 3 meals daily per regulation parameters.",
-    "benefit2-title": "Medical Coverage", "benefit2-desc": "Comprehensive health safety coverage paid entirely for the full 2-year deployment duration.",
-    "benefit3-title": "Flight Coverage", "benefit3-desc": "Complimentary departure air travel tickets and 2-year contract completion return flights.",
-    "benefit4-title": "Tracked Wage Channels", "benefit4-desc": "Musaned WPS (KSA) and Public Authority for Manpower (Kuwait) automated transfers.",
-    "protection-title": "Worker Protection & Ethical Guarantee", "protection-desc": "We operate a strict zero-abandonment policy. Dallol Star runs a dedicated 24/7 hotline mechanism ensuring workers can voice issues regarding salary distribution timeline gaps or healthcare concerns immediately. We strictly partner with accredited agencies in Saudi Arabia, Kuwait, and Jordan that uphold human rights.",
-    "form1-title": "International Agency Request Portal", "form1-subtitle": "Submit your official workforce criteria parameters or demand files directly to our processing desk.",
-    "label-office": "Office Name *", "label-territory": "Target Territory *", "opt-ksa": "Kingdom of Saudi Arabia", "opt-kuwait": "State of Kuwait", "opt-jordan": "Hashemite Kingdom of Jordan",
-    "label-email": "Official Email Contact *", "label-file": "Upload Demand Document / Visa Copies (PDF/Word) *", "label-desc": "Detailed Workforce Requirements Description", "btn-submit-corporate": "Dispatch Demand Package",
-    "seeker-tag": "ለሀገር ውስጥ ሥራ ፈላጊዎች", "seeker-title": "የስራ ዕድል ምዝገባና ማሟያ መስፈርቶች", "seeker-desc": "የሳውዲ፣ ኩዌት እና ዮርዳኖስ የቤት ውስጥ ሰራተኛ፣ ሹፌር እና ሞግዚት የስራ ቅጥር ለማመልከት ከታች የተቀመጡትን መመዘኛዎች ማሟላት ይጠበቅብዎታል።",
-    "criteria-title": "Eligibility Criteria / ማሟላት ያለብዎት ነገሮች:",
-    "crit1": "Valid original Ethiopian Passport (የፀና የኢትዮጵያ ፓስፖርት)", "crit2": "Clean health screening status & GAMCA clearance status.", "crit3": "Minimum basic education level background limits.", "crit4": "No prior criminal cases record profile within local jurisdictions.", "crit5": "Standard 2-year deployment timeline obligation agreement.",
-    "form2-title": "Candidate Quick Register / ፈጣን መመዝገቢያ ፎርም", "label-name": "Full Name / ሙሉ ስም *", "label-phone": "Phone Number / ስልክ ቁጥር *", "label-target": "Target Country / መሄድ የሚፈልጉበት ሀገር *",
-    "opt-sa-mix": "Saudi Arabia / ሳውዲ አረቢያ", "opt-kw-mix": "Kuwait / ኩዌት", "opt-jo-mix": "Jordan / ዮርዳኖስ", "label-passport": "Passport Copy or Photo / የፓስፖርት ፎቶ *", "btn-submit-seeker": "Submit Application / ይመዝገቡ",
-    "footer-col1": "Legal Corporate Entity", "footer-desc": "Licensed recruitment operator specialized in GCC deployments. Delivering swift, legal compliance handling parameters across international logistics networks.",
-    "footer-col2": "Physical Head Office", "addr-reg": "Region: Addis Ababa, Ethiopia", "addr-sub": "Sub-City: Addis Ketema, Woreda 06", "addr-keb": "Kebele 1249, House Number 1249", "addr-floor": "2nd Floor, Office Cabinets: 203, 204, 205", "addr-hours": "Mon - Sat: 8:00 AM - 6:00 PM",
-    "footer-col3": "Direct Contact Matrix", "footer-contact-desc": "Reach out via official support frameworks for quick response parameters:", "footer-copy": "All Rights Vetted and Reserved.", "footer-procl": "Proclamations 923/2016 & 1246/2021 Compliant Platform", "floating-wa": "Contact on WhatsApp"
-  },
-  am: {
-    "nav-about": "ስለ እኛ", "nav-process": "የአሰራር ሂደት", "nav-services": "አገልግሎቶች", "nav-salaries": "ደመወዝ", "nav-jobseekers": "ስራ ፈላጊዎች", "nav-contact": "እውቂያ",
-    "whatsapp-btn": "የቢዝነስ ዋትስአፕ መልዕክት", "whatsapp-line": "የደንበኞች ዋትስአፕ መስመር",
-    "hero-tag": "ህጋዊ እና ፍቃድ ያለው ተቋም", "hero-title": "ከፍተኛ ጥራት ያለው የኢትዮጵያውያን ቅጥር፣ የተረጋገጠ ብቃት።", "hero-desc": "በኢትዮጵያ የውጭ ሀገር የስራ ስምሪት አዋጅ ቁጥር 923/2008 እና 1246/2013 ሙሉ በሙሉ የተፈቀደለት። አስተማማኝ፣ የሰለጠነ እና ቁርጠኛ የሰው ሃይል ወደ ባሕረ ሰላጤው ክልል ማቅረብ።",
-    "hero-btn-corporate": "የሰው ኃይል ይጠይቁ / ከእኛ ጋር ይስሩ", "hero-btn-seeker": "ለመስራት ይመዝገቡ",
-    "cred-title": "የቁጥጥር ማስረጃዎች", "cred-details": "የሰራተኛና ማህበራዊ ጉዳይ ሚኒስቴር ፍቃድ ቁጥር: 923/2008 እና 1246/2013", "destinations-title": "ዋና የስራ መዳረሻ ሀገራት",
-    "country-sa": "ሳውዲ አረቢያ", "status-sa": "በሙሳነድ የተዘጋጀ", "country-kw": "ኩዌት", "status-kw": "በPAM የሚመራ", "country-jo": "ዮርዳኖስ", "status-jo": "የተረጋገጠ መስመር",
-    "qa-title": "የጥራት ማረጋገጫ መስፈርት", "qa-desc": "እያንዳንዱ ሰራተኛ ከመሰማራቱ በፊት ሰፊ የጀርባ ምርመራ፣ አጠቃላይ የGAMCA ጤና ምርመራ እና ሙሉ ተግባራዊ ስልጠና ይወስዳል።",
-    "about-title": "የኢትዮጵያ የሰው ኃይል ለማግኘት ለምን ከእኛ ጋር ይሰራሉ?", "about-subtitle": "ዳሎል ስታር በኢትዮጵያ ባሉ ምርጥ ተሰጥኦዎች እና በባህረ ሰላጤው ሀገራት ባሉ አሰሪዎች መካከል ያለውን ልዩነት ያጠባል።",
-    "prop1-title": "ተስማሚነት እና የስራ ስነ-ምግባር", "prop1-desc": "እጩዎቻችን አስደናቂ የባህል መቋቋም፣ ፈጣን የቤት ሁኔታ መላመድ እና ለስራቸው ጥልቅ ቁርጠኝነት ያሳያሉ።",
-    "prop2-title": "ወጪ ቆጣቢነት", "prop2-desc": "ለቤተሰቦች እና ለኩባንያዎች በሰው ኃይል ጥራት ላይ ምንም ሳይቀንስ ተመጣጣኝ የቤት ውስጥ እና የጉልበት መፍትሄዎችን ማቅረብ።",
-    "prop3-title": "የቋንቋ እና የባህል ዝግጅት", "prop3-desc": "ሁሉም እጩዎች መሰረታዊ የአረብኛ እና የእንግሊዘኛ ቋንቋ ትምህርቶችን ከመካከለኛው ምስራቅ የቤት አወቃቀር አቅጣጫ ጋር ይወስዳሉ።",
-    "flow-title": "የምልመላ እና የስራ ስምሪት ሂደት", "flow-subtitle": "ፍላጎቶችን እንዴት በጥንቃቄ እና በተሳለጠ መልኩ ወደ ህጋዊ ስምሪት እንደምንቀይር።",
-    "step1-title": "ማግኘት እና ማጣራት", "step1-desc": "በመላው ኢትዮጵያ የጀርባ ታሪክ እና የወንጀል ሪከርድ ማረጋገጫ ማካሄድ።",
-    "step2-title": "የሕክምና ማረጋገጫ", "step2-desc": "ለተላላፊ በሽታዎች የጂሲሲ (GCC) ደረጃዎችን የሚያሟላ ጥብቅ የጤና ምርመራ።",
-    "step3-title": "ከመነሻ በፊት ስልጠና", "step3-desc": "መሰረታዊ የአረብኛ ቋንቋ፣ የቤት ውስጥ እቃዎች አጠቃቀም እና የባህል ባህሪያት።",
-    "step4-title": "ቪዛ እና ምስክር ወረቀት", "step4-desc": "የአሻራ ሂደት እና ኦፊሴላዊ የኤምባሲ ውል ማህተም ማረጋገጫ።",
-    "step5-title": "የስምሪት ድጋፍ", "step5-desc": "የበረራ አስተዳደር እና ለ 2 ዓመታት የስራ ዘመን ክፍት የክትትል መስመሮች።",
-    "timeline-title": "መደበኛ የአሰራር ሂደት የጊዜ ሰሌዳ",
-    "time1-day": "ቀን 1 - 2", "time1-title": "የፍላጎት ማረጋገጫ", "time1-desc": "እንደ ሙሳነድ ባሉ ኦፊሴላዊ መንገዶች መስፈርቶችን መገምገም።",
-    "time2-day": "ቀን 3 - 7", "time2-title": "ማጣራት እና ማዛመድ", "time2-desc": "ንቁ እጩዎችን በዕድሜ፣ በስልጠና ዳራ እና በክህሎት ማጣራት።",
-    "time3-day": "ቀን 8 - 20", "time3-title": "የህክምና ሂደት", "time3-desc": "የGAMCA ምርመራ ማረጋገጫዎች፣ የፖሊስ ማረጋገጫ፣ የፓስፖርት ህጋዊነት።",
-    "time4-day": "ቀን 25 - 35", "time4-title": "የቪዛ ማህተም እና በረራ", "time4-desc": "የመጨረሻ የኤምባሲ ሂደቶች፣ የጉዞ ቦታ ማስያዝ ሎጂስቲክስ፣ የመጨረሻ አቅጣጫ።",
-    "pillars-title": "ከመሰማራትዎ በፊት ዋና ዋና የስልጠና ምሰሶዎች", "pillars-subtitle": "ከበረራ በፊት በተግባራዊ የክህሎት ፍተሻዎች የአሰራር ስህተቶችን መቀነስ።",
-    "pillar1-title": "ዘመናዊ የቤት አስተዳደር", "pillar1-desc": "በዘመናዊ ማጠቢያዎች፣ የላቁ ቫክዩሞች፣ ልዩ የእንፋሎት ካውያዎች እና ጥልቅ የወጥ ቤት እቃዎች አጠቃቀም ላይ ተግባራዊ ስልጠና።",
-    "pillar2-title": "የባህል መጣጣም", "pillar2-desc": "ስለ መካከለኛው ምስራቅ ወጎች፣ የቤት ውስጥ ግላዊነት፣ የአለባበስ ስነ-ስርዓት እና የቤተሰብ ክብር እሴቶች ማስተማር።",
-    "pillar3-title": "የችግር መፍቻ መስመር", "pillar3-desc": "እጩዎች የስራ ጉዳዮችን በግልፅ እንዴት እንደሚያሳውቁ፣ የጤና ስጋቶችን እና ደህንነቱ የተጠበቀ አቤቱታ አቀራረብን ማስተማር።",
-    "matrix-title": "ልዩ የስራ ዘርፎች እና ምደባዎች", "matrix-subtitle": "በእኛ በኩል በመደበኛነት የሚሰማሩ የስራ ሂደቶች ግልጽ ምደባ።",
-    "th-job": "የስራ መደብ", "th-dest": "የመዳረሻ ሀገራት", "th-train": "የሚሰጠው መደበኛ ስልጠና",
-    "job1-title": "የቤት ውስጥ ሰራተኞች / ረዳቶች", "job1-desc": "የቤት አስተዳደር፣ የግዴታ ቋንቋ መሰረታዊ ነገሮች እና የወጥ ቤት እቃዎች ቁጥጥር።",
-    "job2-title": "የቤት ውስጥ ምግብ አሰናጅዎች / ሼፎች", "job2-desc": "የመካከለኛው ምስራቅ መሰረታዊ የምግብ አዘገጃጀት ዘዴዎች እና የባለሙያ ወጥ ቤት ንፅህና አጠባበቅ።",
-    "job3-title": "የግል አሽከርካሪዎች", "job3-desc": "የአሰሳ (Navigation) ስርዓቶች አጠቃቀም፣ ተገቢ የትራንዚት ስነ-ምግባር እና መሰረታዊ የሞተር ክትትል።",
-    "job4-title": "ሞግዚቶች እና ተንከባካቢዎች", "job4-desc": "የሕፃናት ደህንነት መሰረታዊ ነገሮች፣ የህፃናት አመጋገብ ክትትል እና የአረጋውያን ድጋፍ ዘዴዎች።",
-    "salary-title": "ግልጽ የደመወዝ መዋቅር", "salary-subtitle": "በዋና ዋና መዳረሻዎች ላይ ኦፊሴላዊ የውል ወርሃዊ መነሻዎች።",
-    "th-sal-dest": "መዳረሻ ሀገር", "th-sal-job": "የስራ መደብ", "th-sal-exp": "የስራ ልምድ", "th-sal-rem": "የወርሃዊ ክፍያ መጠን",
-    "sal1-dest": "ሳውዲ አረቢያ", "sal1-job": "የቤት ውስጥ ሰራተኛ", "sal1-exp": "አዲስ / ለመጀመሪያ ጊዜ",
-    "sal2-dest": "ሳውዲ አረቢያ", "sal2-job": "የቤት ውስጥ ሰራተኛ", "sal2-exp": "2+ ዓመት የባህረ ሰላጤ ልምድ",
-    "sal3-dest": "ሳውዲ አረቢያ", "sal3-job": "ወንድ አሽከርካሪ", "sal3-exp": "አዲስ / ለመጀመሪያ ጊዜ",
-    "sal4-dest": "ኩዌት", "sal4-job": "የቤት ውስጥ ሰራተኛ", "sal4-exp": "አዲስ / ለመጀመሪያ ጊዜ",
-    "sal5-dest": "ኩዌት", "sal5-job": "የቤት ውስጥ ሰራተኛ", "sal5-exp": "2+ ዓመት የባህረ ሰላጤ ልምድ",
-    "sal6-dest": "ዮርዳኖስ", "sal6-job": "የቤት ውስጥ ሰራተኛ (ሁሉም)", "sal6-exp": "ዝቅተኛው ህጋዊ ገደብ",
-    "benefit1-title": "ምግብ እና ማደሪያ ወጪዎች", "benefit1-desc": "በሕጉ መሠረት ሙሉ በሙሉ የተከፈለ መደበኛ ማደሪያ እና በቀን 3 ጊዜ ምግብ።",
-    "benefit2-title": "የህክምና ሽፋን", "benefit2-desc": "ለሙሉ 2-አመት የስራ ስምሪት ጊዜ ሙሉ በሙሉ የተከፈለ አጠቃላይ የጤና ዋስትና ሽፋን።",
-    "benefit3-title": "የበረራ ትኬት ሽፋን", "benefit3-desc": "ነፃ የመነሻ የአየር ጉዞ ትኬቶች እና የ 2 ዓመት ውል ሲጠናቀቅ የመመለሻ በረራዎች።",
-    "benefit4-title": "ህጋዊ የደመወዝ መስመሮች", "benefit4-desc": "የሙሳነድ WPS (ሳውዲ) እና የሰው ኃይል የሕዝብ ባለሥልጣን (ኩዌት) አውቶማቲክ ዝውውሮች።",
-    "protection-title": "የሰራተኞች ጥበቃ እና የስነ-ምግባር ዋስትና", "protection-desc": "እኛ ጥብቅ የዜሮ-መተው ፖሊሲ እንከተላለን። ዳሎል ስታር ሰራተኞች የደመወዝ ክፍያ መዘግየት ወይም የጤና አጠባበቅ ስጋቶችን ወዲያውኑ ማሳወቅ የሚችሉበት የ24/7 የጥሪ ማዕከል አለው። ሰብአዊ መብቶችን ከሚያከብሩ በሳውዲ አረቢያ፣ ኩዌት እና ዮርዳኖስ ከሚገኙ እውቅና ካላቸው ኤጀንሲዎች ጋር ብቻ እንሰራለን።",
-    "form1-title": "የአለም አቀፍ ኤጀንሲ ጥያቄ ፖርታል", "form1-subtitle": "የስራ ሃይል ፍላጎትዎን ወይም የቪዛ ሰነዶችዎን በቀጥታ ወደ እኛ የስራ ክፍል ያስገቡ።",
-    "label-office": "የቢሮ ስም *", "label-territory": "የመዳረሻ ክልል *", "opt-ksa": "የሳውዲ አረቢያ ኪንግደም", "opt-kuwait": "የኩዌት ግዛት", "opt-jordan": "የዮርዳኖስ ሃሺማይት ኪንግደም",
-    "label-email": "ኦፊሴላዊ የኢሜል አድራሻ *", "label-file": "የፍላጎት ሰነድ / የቪዛ ቅጂዎችን ይስቀሉ (PDF/Word) *", "label-desc": "ዝርዝር የስራ ኃይል መስፈርቶች መግለጫ", "btn-submit-corporate": "የጥያቄ ሰነዱን ላክ",
-    "seeker-tag": "ለሀገር ውስጥ ሥራ ፈላጊዎች", "seeker-title": "የስራ ዕድል ምዝገባና ማሟያ መስፈርቶች", "seeker-desc": "የሳውዲ፣ ኩዌት እና ዮርዳኖስ የቤት ውስጥ ሰራተኛ፣ ሹፌር እና ሞግዚት የስራ ቅጥር ለማመልከት ከታች የተቀመጡትን መመዘኛዎች ማሟላት ይጠበቅብዎታል።",
-    "criteria-title": "Eligibility Criteria / ማሟላት ያለብዎት ነገሮች:",
-    "crit1": "Valid original Ethiopian Passport (የፀና የኢትዮጵያ ፓስፖርት)", "crit2": "ደህንነቱ የተጠበቀ የጤና ምርመራ እና የGAMCA ማረጋገጫ ደረጃ።", "crit3": "ዝቅተኛው መሰረታዊ የትምህርት ደረጃ ማረጋገጫ።", "crit4": "በአካባቢው ህጋዊ ስልጣን ውስጥ ምንም አይነት የወንጀል ክስ የሌለበት።", "crit5": "የመደበኛ 2-ዓመት የስራ ስምሪት የውል ስምምነት ግዴታ።",
-    "form2-title": "Candidate Quick Register / ፈጣን መመዝገቢያ ፎርም", "label-name": "Full Name / ሙሉ ስም *", "label-phone": "Phone Number / ስልክ ቁጥር *", "label-target": "Target Country / መሄድ የሚፈልጉበት ሀገር *",
-    "opt-sa-mix": "Saudi Arabia / ሳውዲ አረቢያ", "opt-kw-mix": "Kuwait / ኩዌት", "opt-jo-mix": "Jordan / ዮርዳኖስ", "label-passport": "Passport Copy or Photo / የፓስፖርት ፎቶ *", "btn-submit-seeker": "Submit Application / ይመዝገቡ",
-    "footer-col1": "ህጋዊ የድርጅት አካል", "footer-desc": "በባህረ ሰላጤው ሀገራት ስምሪት ላይ የተሰማራ ፈቃድ ያለው የምልመላ ኦፕሬተር። በአለም አቀፍ የሎጂስቲክስ አውታሮች ላይ ፈጣን፣ ህጋዊ ተገዢነትን ማቅረብ።",
-    "footer-col2": "የቀጥታ ዋና ቢሮ", "addr-reg": "ክልል: አዲስ አበባ, ኢትዮጵያ", "addr-sub": "ክፍለ ከተማ: አዲስ ከተማ, ወረዳ 06", "addr-keb": "ቀበሌ 1249, የቤት ቁጥር 1249", "addr-floor": "2ኛ ፎቅ, የቢሮ ቁጥሮች: 203, 204, 205", "addr-hours": "ሰኞ - ቅዳሜ: ከጠዋቱ 2:00 - ከሰዓት 12:00",
-    "footer-col3": "የቀጥታ ግንኙነት ማውጫ", "footer-contact-desc": "ለፈጣን ምላሽ በኦፊሴላዊ የድጋፍ ማዕቀፎች በኩል ያግኙን:", "footer-copy": "መብቱ በህግ የተጠበቀ ነው።", "footer-procl": "አዋጅ 923/2016 እና 1246/2021 ተገዢ መድረክ", "floating-wa": "በዋትስአፕ ያግኙን"
-  },
-  ar: {
-    "nav-about": "من نحن", "nav-process": "عمليتنا", "nav-services": "الخدمات", "nav-salaries": "الرواتب", "nav-jobseekers": "الباحثين عن عمل", "nav-contact": "اتصل بنا",
-    "whatsapp-btn": "محادثة واتساب للشركات", "whatsapp-line": "خط واتساب للعملاء",
-    "hero-tag": "كيان مرخص ومتوافق قانونياً", "hero-title": "توظيف إثيوبي متميز، تميز معتمد.", "hero-desc": "مصرح لنا بالكامل بموجب قوانين التوظيف الخارجي في إثيوبيا رقم 923/2016 و1246/2021. تقديم كفاءات بشرية موثوقة ومدربة ومدفوعة بالشغف إلى منطقة الخليج العربي.",
-    "hero-btn-corporate": "طلب عمالة / شريك معنا", "hero-btn-seeker": "التسجيل للعمل / ይመዝገቡ",
-    "cred-title": "الاعتمادات التنظيمية", "cred-details": "ترخيص وزارة العمل رقم: 923/2008 & 1246/2013", "destinations-title": "وجهات النقل الأساسية",
-    "country-sa": "المملكة العربية السعودية", "status-sa": "جاهز على مساند", "country-kw": "الكويت", "status-kw": "مُدار عبر الهيئة العامة للقوى العاملة", "country-jo": "الأردن", "status-jo": "مسار معتمد",
-    "qa-title": "معيار ضمان الجودة", "qa-desc": "يخضع كل عامل لفحص شامل للخلفية الجنائية، والشهادات الصحية المعتمدة من جامكا (GAMCA)، وتدريب عملي كامل قبل المغادرة.",
-    "about-title": "لماذا تختارنا لتوفير العمالة الإثيوبية؟", "about-subtitle": "دالول ستار تجسر الفجوة بين الكفاءات العالية من إثيوبيا وأصحاب العمل في جميع أنحاء الخليج.",
-    "prop1-title": "التكيف وأخلاقيات العمل", "prop1-desc": "يظهر مرشحونا قدرة مذهلة على التكيف الثقافي، والاندماج السريع في المنازل، والالتزام العميق بمهام عملهم.",
-    "prop2-title": "فعالية التكلفة", "prop2-desc": "تقديم حلول عمالة منزلية مرنة واقتصادية للعائلات والشركات دون أي تراجع في جودة قوى العمل.",
-    "prop3-title": "التجهيز اللغوي والثقافي", "prop3-desc": "يتلقى جميع المرشحين دورات أساسية في اللغتين العربية والإنجليزية إلى جانب التوجيه حول طبيعة الأسرة في الشرق الأوسط.",
-    "flow-title": "مراحل التوظيف والإرسال", "flow-subtitle": "كيف ننقل الطلبات بأمان وبشكل متوافق تماماً إلى واقع ملموس بسلاسة.",
-    "step1-title": "الاستقطاب والفرز", "step1-desc": "التحقق من الخلفية والسجل الجنائي في جميع أنحاء إثيوبيا.",
-    "step2-title": "الفحص الطبي الرسمي", "step2-desc": "فحص صحي صارم يطابق معايير دول مجلس التعاون الخليجي للأمراض المعدية.",
-    "step3-title": "التدريب قبل المغادرة", "step3-desc": "أساسيات اللغة العربية، استخدام الأجهزة المنزلية، وتوقعات التعامل الثقافي.",
-    "step4-title": "التأشيرات والتصديق", "step4-desc": "معالجة البصمات الحيوية وختم العقود الرسمي من السفارات.",
-    "step5-title": "دعم ما بعد الوصول", "step5-desc": "إدارة الرحلات الجوية وخطوط المتابعة المفتوحة طوال فترة العقد البالغة سنتين.",
-    "timeline-title": "الجدول الزمني القياسي للعملية",
-    "time1-day": "اليوم 1 - 2", "time1-title": "التحقق من الطلب", "time1-desc": "مراجعة المعايير والطلبات عبر القنوات الرسمية المؤتمتة مثل مساند.",
-    "time2-day": "اليوم 3 - 7", "time2-title": "الفرز والمطابقة", "time2-desc": "تصفية المرشحين النشطين حسب العمر، وخلفية التدريب، والمهارات.",
-    "time3-day": "اليوم 8 - 20", "time3-title": "المعالجة الطبية", "time3-desc": "الفحوصات الطبية المعتمدة من GAMCA، التدقيق الأمني، وصلاحية جواز السفر.",
-    "time4-day": "اليوم 25 - 35", "time4-title": "تأشيرة السفارة والرحلة", "time4-desc": "مراحل التخليص النهائي من السفارة، حجز التذاكر والخدمات اللوجستية، والتوجيه الختامي.",
-    "pillars-title": "ركائز التدريب قبل المغادرة", "pillars-subtitle": "تقليل الأخطاء التشغيلية عبر اختبارات المهارات العملية قبل الرحلة.",
-    "pillar1-title": "إدارة المنزل الحديث", "pillar1-desc": "وحدات عمل علمية على الغسالات الذكية، المكانس المتطورة، مكاوي البخار المتخصصة، وإجراءات المطبخ العميقة.",
-    "pillar2-title": "التوافق الثقافي", "pillar2-desc": "تثقيف العمالة حول التقاليد الشرق أوسطية، خصوصية المنازل، الآداب العامة، وتوقعات احترام الأسرة.",
-    "pillar3-title": "قناة حل النزاعات", "pillar3-desc": "تعليم المرشحين كيفية الإبلاغ عن المشكلات التشغيلية بوضوح، والمخاوف الصحية الشخصية، وقواعد التصعيد الآمن.",
-    "matrix-title": "نطاق العمل المتخصص والوظائف المستهدفة", "matrix-subtitle": "تصنيف واضح لتدفقات العمالة النشطة التي يتم إرسالها بانتظام عبر مساراتنا.",
-    "th-job": "فئة الوظيفة", "th-dest": "الوجهات المستهدفة", "th-train": "التدريب القياسي المقدم",
-    "job1-title": "عاملات منازل / مساعدات منزليات", "job1-desc": "إدارة المنزل، أساسيات اللغة الإلزامية، والتحكم في أدوات المطبخ.",
-    "job2-title": "طباخو منازل وطهاة", "job2-desc": "أساليب الطهي الأساسية في الشرق الأوسط ونظافة بيئة المطبخ الاحترافية.",
-    "job3-title": "سائقون خصوصيون", "job3-desc": "إدارة أنظمة الملاحة، إرشادات آداب العبور الصحيحة، والمتابعة الأساسية للمحرك.",
-    "job4-title": "مربيات أطفال ومقدمو رعاية", "job4-desc": "أساسيات سلامة الرضع، مراقبة التغذية للأطفال، وتقنيات دعم كبار السن.",
-    "salary-title": "إطار رواتب شفاف", "salary-subtitle": "الرواتب التعاقدية الشهرية الأساسية الرسمية عبر الوجهات الرئيسية.",
-    "th-sal-dest": "بلد الوجهة", "th-sal-job": "فئة الوظيفة", "th-sal-exp": "الأفق المهني والخلفية", "th-sal-rem": "نطاق الراتب الشهري",
-    "sal1-dest": "المملكة العربية السعودية", "sal1-job": "عاملة منزلية", "sal1-exp": "جديدة / لأول مرة",
-    "sal2-dest": "المملكة العربية السعودية", "sal2-job": "عاملة منزلية", "sal2-exp": "خبرة سنتين أو أكثر في الخليج",
-    "sal3-dest": "المملكة العربية السعودية", "sal3-job": "سائق ذكر", "sal3-exp": "جديد / لأول مرة",
-    "sal4-dest": "الكويت", "sal4-job": "عاملة منزلية", "sal4-exp": "جديدة / لأول مرة",
-    "sal5-dest": "الكويت", "sal5-job": "عاملة منزلية", "sal5-exp": "خبرة سنتين أو أكثر في الخليج",
-    "sal6-dest": "الأردن", "sal6-job": "عامل منزلي (الجميع)", "sal6-exp": "الحد الأدنى القانوني",
-    "benefit1-title": "تكاليف الطعام والسكن", "benefit1-desc": "سكن قياسي مدفوع بالكامل و3 وجبات يومياً وفقاً للمحددات التنظيمية.",
-    "benefit2-title": "التغطية الطبية", "benefit2-desc": "تغطية تأمينية صحية شاملة مدفوعة بالكامل طوال فترة العقد البالغة سنتين.",
-    "benefit3-title": "تذاكر الطيران", "benefit3-desc": "تذاكر طيران مجانية عند المغادرة وتذاكر عودة عند إتمام العقد الممتد لسنتين.",
-    "benefit4-title": "قنوات الأجور الموثقة", "benefit4-desc": "تحويلات مؤتمتة عبر نظام حماية الأجور مساند (السعودية) والهيئة العامة للقوى العاملة (الكويت).",
-    "protection-title": "حماية العمال والضمان الأخلاقي", "protection-desc": "نحن نتبع سياسة صارمة تمنع التخلي عن العمالة. تدير دالول ستار خطاً ساخناً مخصصاً على مدار الساعة طوال الأسبوع لضمان قدرة العمال على التعبير عن المشكلات المتعلقة بالرواتب أو الرعاية الصحية فوراً. نحن نتعامل حصرياً مع الوكالات المعتمدة في السعودية والكويت والأردن التي تحترم حقوق الإنسان.",
-    "form1-title": "بوابة طلبات الوكالات الدولية", "form1-subtitle": "أرسل معايير القوى العاملة الرسمية أو نسخ التأشيرات مباشرة إلى مكتب المعالجة لدينا.",
-    "label-office": "اسم المكتب *", "label-territory": "المنطقة المستهدفة *", "opt-ksa": "المملكة العربية السعودية", "opt-kuwait": "دولة الكويت", "opt-jordan": "المملكة الأردنية الهاشمية",
-    "label-email": "البريد الإلكتروني الرسمي *", "label-file": "تحميل مستند الطلب / نسخ التأشيرة (PDF/Word) *", "label-desc": "وصف تفصيلي لمتطلبات القوى العاملة", "btn-submit-corporate": "إرسال حزمة الطلب",
-    "seeker-tag": "ለሀገር ውስጥ ሥራ ፈላጊዎች", "seeker-title": "የስራ ዕድል ምዝገባና ማሟያ መስፈርቶች", "seeker-desc": "የሳውዲ፣ ኩዌት እና ዮርዳኖስ የቤት ውስጥ ሰራተኛ፣ ሹፌር እና ሞግዚት የስራ ቅጥር ለማመልከት ከታች የተቀመጡትን መመዘኛዎች ማሟላት ይጠበቅብዎታል።",
-    "criteria-title": "Eligibility Criteria / ማሟላት ያለብዎት ነገሮች:",
-    "crit1": "Valid original Ethiopian Passport (የፀና የኢትዮጵያ ፓስፖርት)", "crit2": "حالة فحص صحي سليمة وخلفية طبية معتمدة من جامكا.", "crit3": "الحد الأدنى لمستويات التعليم الأساسي المطلوبة.", "crit4": "سجل جنائي خالٍ من السوابق في النطاق المحلي.", "crit5": "الموافقة والالتزام بفترة التعاقد القياسية البالغة سنتين.",
-    "form2-title": "Candidate Quick Register / ፈጣن መመዝገቢያ ፎርም", "label-name": "Full Name / ሙሉ ስም *", "label-phone": "Phone Number / ስልክ ቁጥር *", "label-target": "Target Country / መሄድ የሚፈልጉበት ሀገር *",
-    "opt-sa-mix": "Saudi Arabia / ሳውዲ አረቢያ", "opt-kw-mix": "Kuwait / ኩዌት", "opt-jo-mix": "Jordan / ዮርዳኖስ", "label-passport": "Passport Copy or Photo / የፓስፖርት ፎቶ *", "btn-submit-seeker": "Submit Application / ይመዝገቡ",
-    "footer-col1": "الكيان القانوني للشركة", "footer-desc": "مشغل توظيف مرخص متخصص في عمليات النقل لدول مجلس التعاون الخليجي. تقديم خدمات امتثال قانوني سريعة عبر شبكات اللوجستيات الدولية.",
-    "footer-col2": "المكتب الرئيسي الفعلي", "addr-reg": "المنطقة: أديس أبابا، إثيوبيا", "addr-sub": "المدينة الفرعية: أديس كيتيما، ووريدا 06", "addr-keb": "كيبيلي 1249، منزل رقم 1249", "addr-floor": "الطابق الثاني، المكاتب: 203، 204، 205", "addr-hours": "الاثنين - السبت: 8:00 صباحاً - 6:00 مساءً",
-    "footer-col3": "مصفوفة الاتصال المباشر", "footer-contact-desc": "تواصل معنا عبر أطر الدعم الرسمية للحصول على استجابة سريعة لمتطلباتكم:", "footer-copy": "جميع الحقوق محفوظة وموثقة.", "footer-procl": "منصة متوافقة مع المرسومين 923/2016 و 1246/2021", "floating-wa": "تواصل معنا عبر واتساب"
-  }
+en: {
+"nav-about": "About Us", "nav-process": "Our Process", "nav-services": "Services", "nav-salaries": "Salaries", "nav-jobseekers": "Job Seekers", "nav-contact": "Contact",
+"whatsapp-btn": "B2B WhatsApp Chat", "whatsapp-line": "WhatsApp Client Line",
+"hero-tag": "Licensed & Compliant Entity", "hero-title": "Premium Ethiopian Recruitment, Certified Excellence.", "hero-desc": "Fully authorized under Ethiopia's Overseas Employment Proclamations No. 923/2016 & 1246/2021. Delivering reliable, trained, and highly dedicated human resource pipelines to the Gulf region.",
+"hero-btn-corporate": "Request Manpower / Partner With Us", "hero-btn-seeker": "Register to Work / ይመዝገቡ",
+"cred-title": "Regulatory Credentials", "cred-details": "Ministry of Labor Lic: No. 923/2008 & 1246/2013", "destinations-title": "Primary Deployment Destinations",
+"country-sa": "Saudi Arabia", "status-sa": "Musaned Ready", "country-kw": "Kuwait", "status-kw": "PAM Managed", "country-jo": "Jordan", "status-jo": "Vetted Lane",
+"qa-title": "Quality Assurance Standard", "qa-desc": "Every single worker undergoes extensive background screening, comprehensive GAMCA health clearances, and full practical training before deployment.",
+"about-title": "Why Partner With Us for Ethiopian Manpower?", "about-subtitle": "Dallol Star bridges the gap between top talent from Ethiopia and employers across the Gulf, mitigating deployment friction.",
+"prop1-title": "Adaptability & Work Ethic", "prop1-desc": "Our candidates show incredible cultural resilience, fast home adaptation, and deep dedication to their work scopes.",
+"prop2-title": "Cost-Effectiveness", "prop2-desc": "Positioning dynamic, budget-friendly domestic and labor solutions for families and companies without a single drop in workforce quality.",
+"prop3-title": "Language & Culture Prep", "prop3-desc": "All candidates receive functional basic Arabic and English language courses alongside Middle Eastern household structure orientation.",
+"flow-title": "The Recruitment & Deployment Pipeline", "flow-subtitle": "How we safely move demands into fully compliant deployments seamlessly.",
+"step1-title": "Sourcing & Screening", "step1-desc": "Background and criminal record verification across Ethiopia.",
+"step2-title": "Medical Clearance", "step2-desc": "Strict health check matching GCC standards for infectious diseases.",
+"step3-title": "Pre-Departure Training", "step3-desc": "Arabic language basics, appliance usage, and cultural expectations.",
+"step4-title": "Visa & Attestation", "step4-desc": "Biometrics processing and official embassy contract stamping.",
+"step5-title": "Deployment Support", "step5-desc": "Flight management and open tracking lines for the 2-year tenure.",
+"timeline-title": "Standard Standardized Process Timeline",
+"time1-day": "Day 1 - 2", "time1-title": "Demand Verification", "time1-desc": "Review criteria through automated official channels like Musaned.",
+"time2-day": "Day 3 - 7", "time2-title": "Screening & Match", "time2-desc": "Filtering active candidates by age, training background, and profile maps.",
+"time3-day": "Day 8 - 20", "time3-title": "Medical Processing", "time3-desc": "GAMCA diagnostic clearances, local police vetting, passport validation.",
+"time4-day": "Day 25 - 35", "time4-title": "Visa Stamp & Flight", "time4-desc": "Final embassy clearance loops, travel booking logistics, orientation wrap.",
+"pillars-title": "Pre-Deployment Training Pillars", "pillars-subtitle": "Mitigating operational errors via practical skill checks before the flight.",
+"pillar1-title": "Modern Home Management", "pillar1-desc": "Practical modules on smart washers, advanced vacuums, specialized steam ironers, and deep kitchen appliance procedures.",
+"pillar2-title": "Cultural Alignment", "pillar2-desc": "Educating deployment pipelines on Middle Eastern traditions, domestic privacy layouts, clothing decorums, and family respect expectations.",
+"pillar3-title": "Crisis Resolution Channel", "pillar3-desc": "Teaching candidates how to communicate operational issues clearly, flag personal health concerns, and handle safe escalation rules.",
+"matrix-title": "Specialized Work Scope & Target Placements", "matrix-subtitle": "Clear categorization of active workflows deployed regularly through our lanes.",
+"th-job": "Job Category", "th-dest": "Target Destinations", "th-train": "Standard Training Provided",
+"job1-title": "Housemaids / Domestic Helpers", "job1-desc": "Household administration, mandatory language fundamentals, and kitchen tools control.",
+"job2-title": "Home Cooks & Chefs", "job2-desc": "Middle Eastern basic gastronomy methods and professional kitchen environment hygiene.",
+"job3-title": "Private Drivers", "job3-desc": "Navigation systems management, proper transit etiquette guidelines, basic engine tracking.",
+"job4-title": "Nannies & Caregivers", "job4-desc": "Infant security basics, pediatric nutrition monitoring, and elder support techniques.",
+"salary-title": "Transparent Salary Framework", "salary-subtitle": "Official contractual monthly baselines across core destinations.",
+"th-sal-dest": "Destination Country", "th-sal-job": "Job Category", "th-sal-exp": "Experience Horizon", "th-sal-rem": "Monthly Remuneration Range",
+"sal1-dest": "Saudi Arabia", "sal1-job": "Housemaid", "sal1-exp": "Fresh / First Time",
+"sal2-dest": "Saudi Arabia", "sal2-job": "Housemaid", "sal2-exp": "2+ Years Gulf Exp.",
+"sal3-dest": "Saudi Arabia", "sal3-job": "Male Driver", "sal3-exp": "Fresh / First Time",
+"sal4-dest": "Kuwait", "sal4-job": "Housemaid", "sal4-exp": "Fresh / First Time",
+"sal5-dest": "Kuwait", "sal5-job": "Housemaid", "sal5-exp": "2+ Years Gulf Exp.",
+"sal6-dest": "Jordan", "sal6-job": "Domestic Worker (All)", "sal6-exp": "Minimum Legal Threshold",
+"benefit1-title": "Food & Living Costs", "benefit1-desc": "Completely paid standard accommodation and 3 meals daily per regulation parameters.",
+"benefit2-title": "Medical Coverage", "benefit2-desc": "Comprehensive health safety coverage paid entirely for the full 2-year deployment duration.",
+"benefit3-title": "Flight Coverage", "benefit3-desc": "Complimentary departure air travel tickets and 2-year contract completion return flights.",
+"benefit4-title": "Tracked Wage Channels", "benefit4-desc": "Musaned WPS (KSA) and Public Authority for Manpower (Kuwait) automated transfers.",
+"protection-title": "Worker Protection & Ethical Guarantee", "protection-desc": "We operate a strict zero-abandonment policy. Dallol Star runs a dedicated 24/7 hotline mechanism ensuring workers can voice issues regarding salary distribution timeline gaps or healthcare concerns immediately. We strictly partner with accredited agencies in Saudi Arabia, Kuwait, and Jordan that uphold human rights.",
+"form1-title": "International Agency Request Portal", "form1-subtitle": "Submit your official workforce criteria parameters or demand files directly to our processing desk.",
+"label-office": "Office Name *", "label-territory": "Target Territory *", "opt-ksa": "Kingdom of Saudi Arabia", "opt-kuwait": "State of Kuwait", "opt-jordan": "Hashemite Kingdom of Jordan",
+"label-email": "Official Email Contact *", "label-file": "Upload Demand Document / Visa Copies (PDF/Word) *", "label-desc": "Detailed Workforce Requirements Description", "btn-submit-corporate": "Dispatch Demand Package",
+"seeker-tag": "ለሀገር ውስጥ ሥራ ፈላጊዎች", "seeker-title": "የስራ ዕድል ምዝገባና ማሟያ መስፈርቶች", "seeker-desc": "የሳውዲ፣ ኩዌት እና ዮርዳኖስ የቤት ውስጥ ሰራተኛ፣ ሹፌር እና ሞግዚት የስራ ቅጥር ለማመልከት ከታች የተቀመጡትን መመዘኛዎች ማሟላት ይጠበቅብዎታል።",
+"criteria-title": "Eligibility Criteria / ማሟላት ያለብዎት ነገሮች:",
+"crit1": "Valid original Ethiopian Passport (የፀና የኢትዮጵያ ፓስፖርት)", "crit2": "Clean health screening status & GAMCA clearance status.", "crit3": "Minimum basic education level background limits.", "crit4": "No prior criminal cases record profile within local jurisdictions.", "crit5": "Standard 2-year deployment timeline obligation agreement.",
+"form2-title": "Candidate Quick Register / ፈጣን መመዝገቢያ ፎርም", "label-name": "Full Name / ሙሉ ስም *", "label-phone": "Phone Number / ስልክ ቁጥር *", "label-target": "Target Country / መሄድ የሚፈልጉበት ሀገር *",
+"opt-sa-mix": "Saudi Arabia / ሳውዲ አረቢያ", "opt-kw-mix": "Kuwait / ኩዌት", "opt-jo-mix": "Jordan / ዮርዳኖስ", "label-passport": "Passport Copy or Photo / የፓስፖርት ፎቶ *", "btn-submit-seeker": "Submit Application / ይመዝገቡ",
+"footer-col1": "Legal Corporate Entity", "footer-desc": "Licensed recruitment operator specialized in GCC deployments. Delivering swift, legal compliance handling parameters across international logistics networks.",
+"footer-col2": "Physical Head Office", "addr-reg": "Region: Addis Ababa, Ethiopia", "addr-sub": "Sub-City: Addis Ketema, Woreda 06", "addr-keb": "Kebele 1249, House Number 1249", "addr-floor": "2nd Floor, Office Cabinets: 203, 204, 205", "addr-hours": "Mon - Sat: 8:00 AM - 6:00 PM",
+"footer-col3": "Direct Contact Matrix", "footer-contact-desc": "Reach out via official support frameworks for quick response parameters:", "footer-copy": "All Rights Vetted and Reserved.", "footer-procl": "Proclamations 923/2016 & 1246/2021 Compliant Platform", "floating-wa": "Contact on WhatsApp"
+},
+am: {
+"nav-about": "ስለ እኛ", "nav-process": "የአሰራር ሂደት", "nav-services": "አገልግሎቶች", "nav-salaries": "ደመወዝ", "nav-jobseekers": "ስራ ፈላጊዎች", "nav-contact": "እውቂያ",
+"whatsapp-btn": "የቢዝነስ ዋትስአፕ መልዕክት", "whatsapp-line": "የደንበኞች ዋትስአፕ መስመር",
+"hero-tag": "ህጋዊ እና ፍቃድ ያለው ተቋም", "hero-title": "ከፍተኛ ጥራት ያለው የኢትዮጵያውያን ቅጥር፣ የተረጋገጠ ብቃት።", "hero-desc": "በኢትዮጵያ የውጭ ሀገር የስራ ስምሪት አዋጅ ቁጥር 923/2008 እና 1246/2013 ሙሉ በሙሉ የተፈቀደለት። አስተማማኝ፣ የሰለጠነ እና ቁርጠኛ የሰው ሃይል ወደ ባሕረ ሰላጤው ክልል ማቅረብ።",
+"hero-btn-corporate": "የሰው ኃይል ይጠይቁ / ከእኛ ጋር ይስሩ", "hero-btn-seeker": "ለመስራት ይመዝገቡ",
+"cred-title": "የቁጥጥር ማስረጃዎች", "cred-details": "የሰራተኛና ማህበራዊ ጉዳይ ሚኒስቴር ፍቃድ ቁጥር: 923/2008 እና 1246/2013", "destinations-title": "ዋና የስራ መዳረሻ ሀገራት",
+"country-sa": "ሳውዲ አረቢያ", "status-sa": "በሙሳነድ የተዘጋጀ", "country-kw": "ኩዌት", "status-kw": "በPAM የሚመራ", "country-jo": "ዮርዳኖስ", "status-jo": "የተረጋገጠ መስመር",
+"qa-title": "የጥራት ማረጋገጫ መስፈርት", "qa-desc": "እያንዳንዱ ሰራተኛ ከመሰማራቱ በፊት ሰፊ የጀርባ ምርመራ፣ አጠቃላይ የGAMCA ጤና ምርመራ እና ሙሉ ተግባራዊ ስልጠና ይወስዳል።",
+"about-title": "የኢትዮጵያ የሰው ኃይል ለማግኘት ለምን ከእኛ ጋር ይሰራሉ?", "about-subtitle": "ዳሎል ስታር በኢትዮጵያ ባሉ ምርጥ ተሰጥኦዎች እና በባህረ ሰላጤው ሀገራት ባሉ አሰሪዎች መካከል ያለውን ልዩነት ያጠባል።",
+"prop1-title": "ተስማሚነት እና የስራ ስነ-ምግባር", "prop1-desc": "እጩዎቻችን አስደናቂ የባህል መቋቋም፣ ፈጣን የቤት ሁኔታ መላመድ እና ለስራቸው ጥልቅ ቁርጠኝነት ያሳያሉ።",
+"prop2-title": "ወጪ ቆጣቢነት", "prop2-desc": "ለቤተሰቦች እና ለኩባንያዎች በሰው ኃይል ጥራት ላይ ምንም ሳይቀንስ ተመጣጣኝ የቤት ውስጥ እና የጉልበት መፍትሄዎችን ማቅረብ።",
+"prop3-title": "የቋንቋ እና የባህል ዝግጅት", "prop3-desc": "ሁሉም እጩዎች መሰረታዊ የአረብኛ እና የእንግሊዘኛ ቋንቋ ትምህርቶችን ከመካከለኛው ምስራቅ የቤት አወቃቀር አቅጣጫ ጋር ይወስዳሉ።",
+"flow-title": "የምልመላ እና የስራ ስምሪት ሂደት", "flow-subtitle": "ፍላጎቶችን እንዴት በጥንቃቄ እና በተሳለጠ መልኩ ወደ ህጋዊ ስምሪት እንደምንቀይር።",
+"step1-title": "ማግኘት እና ማጣራት", "step1-desc": "በመላው ኢትዮጵያ የጀርባ ታሪክ እና የወንጀል ሪከርድ ማረጋገጫ ማካሄድ።",
+"step2-title": "የሕክምና ማረጋገጫ", "step2-desc": "ለተላላፊ በሽታዎች የጂሲሲ (GCC) ደረጃዎችን የሚያሟላ ጥብቅ የጤና ምርመራ።",
+"step3-title": "ከመነሻ በፊት ስልጠና", "step3-desc": "መሰረታዊ የአረብኛ ቋንቋ፣ የቤት ውስጥ እቃዎች አጠቃቀም እና የባህል ባህሪያት።",
+"step4-title": "ቪዛ እና ምስክር ወረቀት", "step4-desc": "የአሻራ ሂደት እና ኦፊሴላዊ የኤምባሲ ውል ማህተም ማረጋገጫ።",
+"step5-title": "የስምሪት ድጋፍ", "step5-desc": "የበረራ አስተዳደር እና ለ 2 ዓመታት የስራ ዘመን ክፍት የክትትል መስመሮች።",
+"timeline-title": "መደበኛ የአሰራር ሂደት የጊዜ ሰሌዳ",
+"time1-day": "ቀን 1 - 2", "time1-title": "የፍላጎት ማረጋገጫ", "time1-desc": "እንደ ሙሳነድ ባሉ ኦፊሴላዊ መንገዶች መስፈርቶችን መገምገም።",
+"time2-day": "ቀን 3 - 7", "time2-title": "ማጣራት እና ማዛመድ", "time2-desc": "ንቁ እጩዎችን በዕድሜ፣ በስልጠና ዳራ እና በክህሎት ማጣራት።",
+"time3-day": "ቀን 8 - 20", "time3-title": "የህክምና ሂደት", "time3-desc": "የGAMCA ምርመራ ማረጋገጫዎች፣ የፖሊስ ማረጋገጫ፣ የፓስፖርት ህጋዊነት።",
+"time4-day": "ቀን 25 - 35", "time4-title": "የቪዛ ማህተም እና በረራ", "time4-desc": "የመጨረሻ የኤምባሲ ሂደቶች፣ የጉዞ ቦታ ማስያዝ ሎጂስቲክስ፣ የመጨረሻ አቅጣጫ።",
+"pillars-title": "ከመሰማራትዎ በፊት ዋና ዋና የስልጠና ምሰሶዎች", "pillars-subtitle": "ከበረራ በፊት በተግባራዊ የክህሎት ፍተሻዎች የአሰራር ስህተቶችን መቀነስ።",
+"pillar1-title": "ዘመናዊ የቤት አስተዳደር", "pillar1-desc": "በዘመናዊ ማጠቢያዎች፣ የላቁ ቫክዩሞች፣ ልዩ የእንፋሎት ካውያዎች እና ጥልቅ የወጥ ቤት እቃዎች አጠቃቀም ላይ ተግባራዊ ስልጠና።",
+"pillar2-title": "የባህል መጣጣም", "pillar2-desc": "ስለ መካከለኛው ምስራቅ ወጎች፣ የቤት ውስጥ ግላዊነት፣ የአለባበስ ስነ-ስርዓት እና የቤተሰብ ክብር እሴቶች ማስተማር።",
+"pillar3-title": "የችግር መፍቻ መስመር", "pillar3-desc": "እጩዎች የስራ ጉዳዮችን በግልፅ እንዴት እንደሚያሳውቁ፣ የጤና ስጋቶችን እና ደህንነቱ የተጠበቀ አቤቱታ አቀራረብን ማስተማር።",
+"matrix-title": "ልዩ የስራ ዘርፎች እና ምደባዎች", "matrix-subtitle": "በእኛ በኩል በመደበኛነት የሚሰማሩ የስራ ሂደቶች ግልጽ ምደባ።",
+"th-job": "የስራ መደብ", "th-dest": "የመዳረሻ ሀገራት", "th-train": "የሚሰጠው መደበኛ ስልጠና",
+"job1-title": "የቤት ውስጥ ሰራተኞች / ረዳቶች", "job1-desc": "የቤት አስተዳደር፣ የግዴታ ቋንቋ መሰረታዊ ነገሮች እና የወጥ ቤት እቃዎች ቁጥጥር።",
+"job2-title": "የቤት ውስጥ ምግብ አሰናጅዎች / ሼፎች", "job2-desc": "የመካከለኛው ምስራቅ መሰረታዊ የምግብ አዘገጃጀት ዘዴዎች እና የባለሙያ ወጥ ቤት ንፅህና አጠባበቅ።",
+"job3-title": "የግል አሽከርካሪዎች", "job3-desc": "የአሰሳ (Navigation) ስርዓቶች አጠቃቀም፣ ተገቢ የትራንዚት ስነ-ምግባር እና መሰረታዊ የሞተር ክትትል።",
+"job4-title": "ሞግዚቶች እና ተንከባካቢዎች", "job4-desc": "የሕፃናት ደህንነት መሰረታዊ ነገሮች፣ የህፃናት አመጋገብ ክትትል እና የአረጋውያን ድጋፍ ዘዴዎች።",
+"salary-title": "ግልጽ የደመወዝ መዋቅር", "salary-subtitle": "በዋና ዋና መዳረሻዎች ላይ ኦፊሴላዊ የውል ወርሃዊ መነሻዎች።",
+"th-sal-dest": "መዳረሻ ሀገር", "th-sal-job": "የስራ መደብ", "th-sal-exp": "የስራ ልምድ", "th-sal-rem": "የወርሃዊ ክፍያ መጠን",
+"sal1-dest": "ሳውዲ አረቢያ", "sal1-job": "የቤት ውስጥ ሰራተኛ", "sal1-exp": "አዲስ / ለመጀመሪያ ጊዜ",
+"sal2-dest": "ሳውዲ አረቢያ", "sal2-job": "የቤት ውስጥ ሰራተኛ", "sal2-exp": "2+ ዓመት የባህረ ሰላጤ ልምድ",
+"sal3-dest": "ሳውዲ አረቢያ", "sal3-job": "ወንድ አሽከርካሪ", "sal3-exp": "አዲስ / ለመጀመሪያ ጊዜ",
+"sal4-dest": "ኩዌት", "sal4-job": "የቤት ውስጥ ሰራተኛ", "sal4-exp": "አዲስ / ለመጀመሪያ ጊዜ",
+"sal5-dest": "ኩዌት", "sal5-job": "የቤት ውስጥ ሰራተኛ", "sal5-exp": "2+ ዓመት የባህረ ሰላጤ ልምድ",
+"sal6-dest": "ዮርዳኖስ", "sal6-job": "የቤት ውስጥ ሰራተኛ (ሁሉም)", "sal6-exp": "ዝቅተኛው ህጋዊ ገደብ",
+"benefit1-title": "ምግብ እና ማደሪያ ወጪዎች", "benefit1-desc": "በሕጉ መሠረት ሙሉ በሙሉ የተከፈለ መደበኛ ማደሪያ እና በቀን 3 ጊዜ ምግብ።",
+"benefit2-title": "የህክምና ሽፋን", "benefit2-desc": "ለሙሉ 2-አመት የስራ ስምሪት ጊዜ ሙሉ በሙሉ የተከፈለ አጠቃላይ የጤና ዋስትና ሽፋን።",
+"benefit3-title": "የበረራ ትኬት ሽፋን", "benefit3-desc": "ነፃ የመነሻ የአየር ጉዞ ትኬቶች እና የ 2 ዓመት ውል ሲጠናቀቅ የመመለሻ በረራዎች።",
+"benefit4-title": "ህጋዊ የደመወዝ መስመሮች", "benefit4-desc": "የሙሳነድ WPS (አረቢያ) እና የሰው ኃይል የሕዝብ ባለሥልጣን (ኩዌት) አውቶማቲክ ዝውውሮች።",
+"protection-title": "የሰራተኞች ጥበቃ እና የስነ-ምግባር ዋስትና", "protection-desc": "እኛ ጥብቅ የዜሮ-መተው ፖሊሲ እንከተላለን። ዳሎል ስታር ሰራተኞች የደመወዝ ክፍያ መዘግየት ወይም የጤና አጠባበቅ ስጋቶችን ወዲያውኑ ማሳወቅ የሚችሉበት የ24/7 የጥሪ ማዕከል አለው። ሰብአዊ መብቶችን ከሚያከብሩ በሳውዲ አረቢያ، ኩዌት እና ዮርዳኖስ ከሚገኙ እውቅና ካላቸው ኤጀንሲዎች ጋር ብቻ እንሰራለን።",
+"form1-title": "የአለም አቀፍ ኤጀንሲ ጥያቄ ፖርታል", "form1-subtitle": "የስራ ሃይል ፍላጎትዎን ወይም የቪዛ ሰነዶችዎን በቀጥታ ወደ እኛ የስራ ክፍል ያስገቡ።",
+"label-office": "የቢሮ ስም *", "label-territory": "የመዳረሻ ክል *", "opt-ksa": "የሳውዲ አረቢያ ኪንግደም", "opt-kuwait": "የኩዌት ግዛት", "opt-jordan": "የዮርዳኖስ ሃሺማይት ኪንግደም",
+"label-email": "ኦፊሴላዊ የኢሜል አድራሻ *", "label-file": "የፍላጎት ሰነድ / የቪዛ ቅጂዎችን ይስቀሉ (PDF/Word) *", "label-desc": "ዝርዝር የስራ ኃይል መስፈርቶች መግለጫ", "btn-submit-corporate": "የጥያቄ ሰነዱን ላክ",
+"seeker-tag": "ለሀገር ውስጥ ሥራ ፈላጊዎች", "seeker-title": "የስራ ዕድል ምዝገባና ማሟያ መስፈርቶች", "seeker-desc": "የሳውዲ፣ ኩዌት እና ዮርዳኖስ የቤት ውስጥ ሰራተኛ፣ ሹፌር እና ሞግዚት የስራ ቅጥር ለማመልከት ከታች የተቀመጡትን መመዘኛዎች ማሟላት ይጠበቅብዎታል።",
+"criteria-title": "Eligibility Criteria / ማሟላት ያለብዎት ነገሮች:",
+"crit1": "Valid original Ethiopian Passport (የፀና የኢትዮጵያ ፓስፖርት)", "crit2": "ደህንነቱ የተጠበቀ የጤና ምርመራ እና የGAMCA ማረጋገጫ ደረጃ።", "crit3": "ዝቅተኛው መሰረታዊ የትምህርት ደረጃ ማረጋገጫ።", "crit4": "በአካባቢው ህጋዊ ስልጣን ውስጥ ምንም አይነት የወንጀል ክስ የሌለበት።", "crit5": "የመደበኛ 2-ዓመት የስራ ስምሪት የውል ስምምነት ግዴታ።",
+"form2-title": "Candidate Quick Register / ፈጣን መመዝገቢያ ፎርም", "label-name": "Full Name / ሙሉ ስም *", "label-phone": "Phone Number / ስልክ ቁጥር *", "label-target": "Target Country / መሄድ የሚፈልጉበት ሀገር *",
+"opt-sa-mix": "Saudi Arabia / ሳውዲ አረቢያ", "opt-kw-mix": "Kuwait / ኩዌት", "opt-jo-mix": "Jordan / ዮርዳኖስ", "label-passport": "Passport Copy or Photo / የፓስፖርት ፎቶ *", "btn-submit-seeker": "Submit Application / ይመዝገቡ",
+"footer-col1": "ህጋዊ የድርጅት አካል", "footer-desc": "በባህረ ሰላጤው ሀገራት ስምሪት ላይ የተሰማራ ፈቃድ ያለው የምልመላ ኦፕሬተር። በአለም አቀፍ የሎጂስቲክስ አውታሮች ላይ ፈጣን፣ ህጋዊ ተገዢነትን ማቅረብ።",
+"footer-col2": "የቀጥታ ዋና ቢሮ", "addr-reg": "ክልል: አዲስ አበባ, ኢትዮጵያ", "addr-sub": "ክፍለ ከተማ: አዲስ ከተማ, ወረዳ 06", "addr-keb": "ቀበሌ 1249, የቤት ቁጥር 1249", "addr-floor": "2ኛ ፎቅ, የቢሮ ቁጥሮች: 203, 204, 205", "addr-hours": "ሰኞ - ቅዳሜ: ከጠዋቱ 2:00 - ከሰዓት 12:00",
+"footer-col3": "የቀጥታ ግንኙነት ማውጫ", "footer-contact-desc": "ለፈጣን ምላሽ በኦፊሴላዊ የድጋፍ ማዕቀፎች በኩል ያግኙን:", "footer-copy": "መብቱ በህግ የተጠበቀ ነው።", "footer-procl": "አዋጅ 923/2016 እና 1246/2021 ተገዢ መድረክ", "floating-wa": "በዋትስአፕ ያግኙን"
+},
+ar: {
+"nav-about": "من نحن", "nav-process": "عمليتنا", "nav-services": "الخدمات", "nav-salaries": "الرواتب", "nav-jobseekers": "الباحثين عن عمل", "nav-contact": "اتصل بنا",
+"whatsapp-btn": "محادثة واتساب للشركات", "whatsapp-line": "خط واتساب للعملاء",
+"hero-tag": "كيان مرخص ومتوافق قانونياً", "hero-title": "توظيف إثيوبي متميز، تميز معتمد.", "hero-desc": "مصرح لنا بالكامل بموجب قوانين التوظيف الخارجي في إثيوبيا رقم 923/2016 و1246/2021. تقديم كفاءات بشرية موثوقة ومدربة ومدفوعة بالشغف إلى منطقة الخليج العربي.",
+"hero-btn-corporate": "طلب عمالة / شريك معنا", "hero-btn-seeker": "التسجيل للعمل / ይመዝገቡ",
+"cred-title": "الاعتمادات التنظيمية", "cred-details": "ترخيص وزارة العمل رقم: 923/2008 & 1246/2013", "destinations-title": "وجهات النقل الأساسية",
+"country-sa": "المملكة العربية السعودية", "status-sa": "جاهز على مساند", "country-kw": "الكويت", "status-kw": "مُدار عبر الهيئة العامة للقوى العاملة", "country-jo": "الأردن", "status-jo": "مسار معتمد",
+"qa-title": "معيار ضمان الجودة", "qa-desc": "يخضع كل عامل لفحص شامل للخلفية الجنائية، والشهادات الصحية المعتمدة من جامكا (GAMCA)، وتدريب عملي كامل قبل المغادرة.",
+"about-title": "لماذا تختارنا لتوفير العمالة الإثيوبية؟", "about-subtitle": "دالول ستار تجسر الفجوة بين الكفاءات العالية من إثيوبيا وأصحاب العمل في جميع أنحاء الخليج.",
+"prop1-title": "التكيف وأخلاقيات العمل", "prop1-desc": "يظهر مرشحونا قدرة مذهلة على التكيف الثقافي، والاندماج السريع في المنازل، والالتزام العميق بمهام عملهم.",
+"prop2-title": "فعالية التكلفة", "prop2-desc": "تقديم حلول عمالة منزلية مرنة واقتصادية للعائلات والشركات دون أي تراجع في جودة قوى العمل.",
+"prop3-title": "التجهيز اللغوي والثقافي", "prop3-desc": "يتلقى جميع المرشحين دورات أساسية في اللغتين العربية والإنجليزية إلى جانب التوجيه حول طبيعة الأسرة في الشرق الأوسط.",
+"flow-title": "مراحل التوظيف والإرسال", "flow-subtitle": "كيف ننقل الطلبات بأمان وبشكل متوافق تماماً إلى واقع ملموس بسلاسة.",
+"step1-title": "الاستقطاب والفرز", "step1-desc": "التحقق من الخلفية والسجل الجنائي في جميع أنحاء إثيوبيا.",
+"step2-title": "الفحص الطبي الرسمي", "step2-desc": "فحص صحي صارم يطابق معايير دول مجلس التعاون الخليجي للأمراض المعدية.",
+"step3-title": "التدريب قبل المغادرة", "step3-desc": "أساسيات اللغة العربية، استخدام الأجهزة المنزلية، وتوقعات التعامل الثقافي.",
+"step4-title": "التأشيرات والتصديق", "step4-desc": "معالجة البصمات الحيوية وختم العقود الرسمي من السفارات.",
+"step5-title": "دعم ما بعد الوصول", "step5-desc": "إدارة الرحلات الجوية وخطوط المتابعة المفتوحة طوال فترة العقد البالغة سنتين.",
+"timeline-title": "الجدول الزمني القياسي للعملية",
+"time1-day": "اليوم 1 - 2", "time1-title": "التحقق من الطلب", "time1-desc": "مراجعة المعايير والطلبات عبر القنوات الرسمية المؤتمتة مثل مساند.",
+"time2-day": "اليوم 3 - 7", "time2-title": "الفرز والمطابقة", "time2-desc": "تصفية المرشحين النشطين حسب العمر، وخلفية التدريب، والمهارات.",
+"time3-day": "اليوم 8 - 20", "time3-title": "المعالجة الطبية", "time3-desc": "الفحوصات الطبية المعتمدة من GAMCA، التدقيق الأمني، وصلاحية جواز السفر.",
+"time4-day": "اليوم 25 - 35", "time4-title": "تأشيرة السفارة والرحلة", "time4-desc": "مراحل التخليص النهائي من السفارة، حجز التذاكر والخدمات اللوجستية، والتوجيه الختامي.",
+"pillars-title": "ركائز التدريب قبل المغادرة", "pillars-subtitle": "تقليل الأخطاء التشغيلية عبر اختبارات المهارات العملية قبل الرحلة.",
+"pillar1-title": "إدارة المنزل الحديث", "pillar1-desc": "وحدات عمل علمية على الغسالات الذكية، المكانس المتطورة، مكاوي البخار المتخصصة، وإجراءات المطبخ العميقة.",
+"pillar2-title": "التوافق الثقافي", "pillar2-desc": "تثقيف العمالة حول التقاليد الشرق أوسطية، خصوصية المنازل، الآداب العامة، وتوقعات احترام الأسرة.",
+"pillar3-title": "قناة حل النزاعات", "pillar3-desc": "تعليم المرشحين كيفية الإبلاغ عن المشكلات التشغيلية بوضوح، والمخاوف الصحية الشخصية، وقواعد التصعيد الآمن.",
+"matrix-title": "نطاق العمل المتخصص والوظائف المستهدفة", "matrix-subtitle": "تصنيف واضح لتدفقات العمالة النشطة التي يتم إرسالها بانتظام عبر مساراتنا.",
+"th-job": "فئة الوظيفة", "th-dest": "الوجهات المستهدفة", "th-train": "التدريب القياسي المقدم",
+"job1-title": "عاملات منازل / مساعدات منزليات", "job1-desc": "إدارة المنزل، أساسيات اللغة الإلزامية، والتحكم في أدوات المطبخ.",
+"job2-title": "طباخو منازل وطهاة", "job2-desc": "أساليب الطهي الأساسية في الشرق الأوسط ونظافة بيئة المطبخ الاحترافية.",
+"job3-title": "سائقون خصوصيون", "job3-desc": "إدارة أنظمة الملاحة، إرشادات آداب العبور الصحيحة، والمتابعة الأساسية للمحرك.",
+"job4-title": "مربيات أطفال ومقدمو رعاية", "job4-desc": "أساسيات سلامة الرضع، مراقبة التغذية للأطفال، وتقنيات دعم كبار السن.",
+"salary-title": "إطار رواتب شفاف", "salary-subtitle": "الرواتب التعاقدية الشهرية الأساسية الرسمية عبر الوجهات الرئيسية.",
+"th-sal-dest": "بلد الوجهة", "th-sal-job": "فئة الوظيفة", "th-sal-exp": "الأفق المهني والخلفية", "th-sal-rem": "نطاق الراتب الشهري",
+"sal1-dest": "المملكة العربية السعودية", "sal1-job": "عاملة منزلية", "sal1-exp": "جديدة / لأول مرة",
+"sal2-dest": "المملكة العربية السعودية", "sal2-job": "عاملة منزلية", "sal2-exp": "خبرة سنتين أو أكثر في الخليج",
+"sal3-dest": "المملكة العربية السعودية", "sal3-job": "سائق ذكر", "sal3-exp": "جديد / لأول مرة",
+"sal4-dest": "الكويت", "sal4-job": "عاملة منزلية", "sal4-exp": "جديدة / لأول مرة",
+"sal5-dest": "الكويت", "sal5-job": "عاملة منزلية", "sal5-exp": "خبرة سنتين أو أكثر في الخليج",
+"sal6-dest": "الأردن", "sal6-job": "عامل منزلي (الجميع)", "sal6-exp": "الحد الأدنى القانوني",
+"benefit1-title": "تكاليف الطعام والسكن", "benefit1-desc": "سكن قياسي مدفوع بالكامل و3 وجبات يومياً وفقاً للمحددات التنظيمية.",
+"benefit2-title": "التغطية الطبية", "benefit2-desc": "تغطية تأمينية صحية شاملة مدفوعة بالكامل طوال فترة العقد البالغة سنتين.",
+"benefit3-title": "تذاكر الطيران", "benefit3-desc": "تذاكر طيران مجانية عند المغادرة وتذاكر عودة عند إتمام العقد الممتد لسنتين.",
+"benefit4-title": "قنوات الأجور الموثقة", "benefit4-desc": "تحويلات مؤتمتة عبر نظام حماية الأجور مساند (السعودية) والهيئة العامة للقوى العاملة (الكويت).",
+"protection-title": "حماية العمال والضمان الأخلاقي", "protection-desc": "نحن نتبع سياسة صارمة تمنع التخلي عن العمالة. تدير دالول ستار خطاً ساخناً مخصصاً على مدار الساعة طوال الأسبوع لضمان قدرة العمال على التعبير عن المشكلات المتعلقة بالرواتب أو الرعاية الصحية فوراً. نحن نتعامل حصرياً مع الوكالات المعتمدة في السعودية والكويت والأردن التي تحترم حقوق الإنسان.",
+"form1-title": "بوابة طلبات الوكالات الدولية", "form1-subtitle": "أرسل معايير القوى العاملة الرسمية أو نسخ التأشيرات مباشرة إلى مكتب المعالجة لدينا.",
+"label-office": "اسم المكتب *", "label-territory": "المنطقة المستهدفة *", "opt-ksa": "المملكة العربية السعودية", "opt-kuwait": "دولة الكويت", "opt-jordan": "المملكة الأردنية الهاشمية",
+"label-email": "البريد الإلكتروني الرسمي *", "label-file": "تحميل مستند الطلب / نسخ التأشيرة (PDF/Word) *", "label-desc": "وصف تفصيلي لمتطلبات القوى العاملة", "btn-submit-corporate": "إرسال حزمة الطلب",
+"seeker-tag": "ለሀገር ውስጥ ሥራ ፈላጊዎች", "seeker-title": "የስራ ዕድል ምዝገባና ማሟያ መስፈርቶች", "seeker-desc": "የሳውዲ፣ ኩዌት እና ዮርዳኖስ የቤት ውስጥ ሰራተኛ፣ ሹፌር እና ሞግዚት የስራ ቅጥር ለማመልከት ከታች የተቀመጡትን መመዘኛዎች ማሟላት ይጠበቅብዎታል።",
+"criteria-title": "Eligibility Criteria / ማሟላት ያለብዎት ነገሮች:",
+"crit1": "Valid original Ethiopian Passport (የፀና የኢትዮጵያ ፓስፖርት)", "crit2": "حالة فحص صحي سليمة وخلفية طبية معتمدة من جامكا.", "crit3": "الحد الأدنى لمستويات التعليم الأساسي المطلوبة.", "crit4": "سجل جنائي خالٍ من السوابق في النطاق المحلي.", "crit5": "الموافقة والالتزام بفترة التعاقد القياسية البالغة سنتين.",
+"form2-title": "Candidate Quick Register / ፈጣን መመዝገቢያ ፎርም", "label-name": "Full Name / ሙሉ ስም *", "label-phone": "Phone Number / ስልክ ቁጥር *", "label-target": "Target Country / መሄድ የሚፈልጉበት ሀገር *",
+"opt-sa-mix": "Saudi Arabia / ሳውዲ أረቢያ", "opt-kw-mix": "Kuwait / ኩዌት", "opt-jo-mix": "Jordan / ዮርዳኖስ", "label-passport": "Passport Copy or Photo / የፓስፖርት ፎቶ *", "btn-submit-seeker": "Submit Application / ይመዝገቡ",
+"footer-col1": "الكيان القانوني للشركة", "footer-desc": "مشغل توظيف مرخص متخصص في عمليات النقل لدول مجلس التعاون الخليجي. تقديم خدمات امتثال قانوني سريعة عبر شبكات اللوجستيات الدولية.",
+"footer-col2": "المكتب الرئيسي الفعلي", "addr-reg": "المنطقة: أديس أبابا، إثيوبيا", "addr-sub": "المدينة الفرعية: أديس كيتيما، ووريدا 06", "addr-keb": "كيبيلي 1249، منزل رقم 1249", "addr-floor": "الطابق الثاني، المكاتب: 203، 204، 205", "addr-hours": "الاثنين - السبت: 8:00 صباحاً - 6:00 مساءً",
+"footer-col3": "مصفوفة الاتصال المباشر", "footer-contact-desc": "تواصل معنا عبر أطر الدعم الرسمية للحصول على استجابة سريعة لمتطلباتكم:", "footer-copy": "جميع الحقوق محفوظة وموثقة.", "footer-procl": "منصة متوافقة مع المرسومين 923/2016 و 1246/2021", "floating-wa": "تواصل معنا عبر واتساب"
+}
 };
 
 // Toggle Function logic to swap strings inside data-i18n tags safely without breaking HTML structure
 function changeLanguage(lang) {
-  const elements = document.querySelectorAll('[data-i18n]');
-  elements.forEach(element => {
-    const key = element.getAttribute('data-i18n');
-    if (dictionary[lang] && dictionary[lang][key]) {
-      element.innerText = dictionary[lang][key];
-    }
-  });
+const elements = document.querySelectorAll('[data-i18n]');
+elements.forEach(element => {
+const key = element.getAttribute('data-i18n');
+if (dictionary[lang] && dictionary[lang][key]) {
+element.innerText = dictionary[lang][key];
+}
+});
 
-  // Adjust text direction for Arabic (RTL) vs English/Amharic (LTR)
-  if (lang === 'ar') {
-    document.documentElement.setAttribute('dir', 'rtl');
-    document.documentElement.setAttribute('lang', 'ar');
-  } else {
-    document.documentElement.setAttribute('dir', 'ltr');
-    document.documentElement.setAttribute('lang', lang);
-  }
-  
-  // Synchronize both desktop and mobile selection UI states
-  document.getElementById('lang-select-desktop').value = lang;
-  document.getElementById('lang-select-mobile').value = lang === 'en' ? 'en' : (lang === 'am' ? 'am' : 'ar');
+// Adjust text direction for Arabic (RTL) vs English/Amharic (LTR)
+if (lang === 'ar') {
+document.documentElement.setAttribute('dir', 'rtl');
+document.documentElement.setAttribute('lang', 'ar');
+} else {
+document.documentElement.setAttribute('dir', 'ltr');
+document.documentElement.setAttribute('lang', lang);
+}
+
+// Synchronize both desktop and mobile selection UI states
+document.getElementById('lang-select-desktop').value = lang;
+document.getElementById('lang-select-mobile').value = lang === 'en' ? 'en' : (lang === 'am' ? 'am' : 'ar');
 }
 
 // Attach event listeners to selector elements
