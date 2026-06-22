@@ -57,35 +57,48 @@ max-height: 600px;
 </style>
 </head>
 <body class="bg-brand-light text-slate-800 font-sans antialiased">
-
 <header class="sticky top-0 z-50 bg-brand-navy text-white shadow-md border-b border-brand-gold/30">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex items-center justify-between h-20">
-<div class="flex-shrink-0 flex items-center space-x-4">
-  <img src="DALLOSTAR LOGO.jfif" alt="Dallol Star Logo" class="h-30 w-30 object-contain rounded-md">
-  <div>
-    <h1 class="text-xl font-bold tracking-wide text-brand-gold">DALLOL-STAR MANPOWER</h1>
-    <p class="text-xs text-slate-400 font-serif">ዳሎል ስታር ማንፓወር</p>
+<div class="flex-shrink-0">
+<h1 class="text-xl font-bold tracking-wide text-brand-gold">DALLOL-STAR MANPOWER</h1>
+<p class="text-xs text-slate-400 font-serif">ዳሎል ስታር ማንፓወር</p>
+</div>
+<nav class="bg-brand-navy border-b border-brand-gold/20 fixed w-full z-50 backdrop-blur-md bg-opacity-95">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-28"> <div class="flex-shrink-0 flex items-center space-x-4">
+        <img src="DALLOSTAR LOGO.jfif" alt="Dallol Star Logo" class="h-24 w-24 object-contain rounded-lg border border-brand-gold/30">
+        <div>
+          <h1 class="text-2xl font-bold tracking-wide text-brand-gold leading-tight">DALLOL-STAR MANPOWER</h1>
+          <p class="text-sm text-slate-400 font-serif mt-0.5">ዳሎል ስታር ማንፓወር</p>
+        </div>
+      </div>
+
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#home" data-i18n="nav_home" class="text-white hover:text-brand-gold transition-colors font-medium text-sm tracking-wide">Home</a>
+        <a href="#about" data-i18n="nav_about" class="text-white hover:text-brand-gold transition-colors font-medium text-sm tracking-wide">About Us</a>
+        <a href="#services" data-i18n="nav_services" class="text-white hover:text-brand-gold transition-colors font-medium text-sm tracking-wide">Services</a>
+        <a href="#countries" data-i18n="nav_countries" class="text-white hover:text-brand-gold transition-colors font-medium text-sm tracking-wide">Destinations</a>
+        <a href="#contact" data-i18n="nav_contact" class="text-white hover:text-brand-gold transition-colors font-medium text-sm tracking-wide">Contact</a>
+        
+        <div class="relative inline-block">
+          <select id="lang-select-desktop" class="bg-brand-blue text-white border border-brand-gold/40 rounded px-3 py-1.5 text-xs focus:outline-none focus:border-brand-gold cursor-pointer font-medium">
+            <option value="en">English</option>
+            <option value="am">አማርኛ</option>
+            <option value="ar">العربية</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="md:hidden flex items-center">
+        <button id="menu-toggle" class="text-white hover:text-brand-gold focus:outline-none p-2" aria-label="Toggle Menu">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+
+    </div>
   </div>
-</div>
-
-<nav class="hidden md:flex space-x-6 text-sm font-medium">
-<a href="#about" data-i18n="nav-about" class="hover:text-brand-gold transition">About Us</a>
-<a href="#workflow" data-i18n="nav-process" class="hover:text-brand-gold transition">Our Process</a>
-<a href="#services" data-i18n="nav-services" class="hover:text-brand-gold transition">Services</a>
-<a href="#salaries" data-i18n="nav-salaries" class="hover:text-brand-gold transition">Salaries</a>
-<a href="#jobseekers" data-i18n="nav-jobseekers" class="hover:text-brand-gold transition">Job Seekers</a>
-<a href="#contact" data-i18n="nav-contact" class="hover:text-brand-gold transition">Contact</a>
 </nav>
-
-<div class="hidden md:flex items-center space-x-4">
-<div class="relative inline-block text-left">
-<select id="lang-select-desktop" class="bg-brand-blue border border-brand-gold/50 text-white text-xs rounded-lg block p-2 focus:outline-none cursor-pointer">
-<option value="en">English</option>
-<option value="am">አማርኛ (Amharic)</option>
-<option value="ar">العربية (Arabic)</option>
-</select>
-</div>
 <a href="https://wa.me/251911661718" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm flex items-center font-medium transition">
 <i class="fab fa-whatsapp mr-2 text-base"></i>
 <span data-i18n="whatsapp-btn">B2B WhatsApp Chat</span>
